@@ -10,7 +10,8 @@ import CustomSplashScreen from "@/components/SplashScreen";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { trpc, trpcClient } from "@/lib/trpc";
 import { useUserStore } from "@/store/userStore";
-import { RootStackParamList } from "@/types/navigation";
+import { RootStackParamList } from "@/types/navigation"
+import { useFrameworkReady } from '@/hooks/useFrameworkReady';
 
 export const unstable_settings = {
   initialRouteName: "(tabs)",
@@ -23,6 +24,7 @@ const queryClient = new QueryClient();
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
+  useFrameworkReady();
   const [loaded, error] = useFonts({
     ...FontAwesome.font,
   });
