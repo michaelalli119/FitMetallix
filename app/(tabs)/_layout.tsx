@@ -2,10 +2,11 @@ import React from 'react';
 import { Tabs } from 'expo-router';
 import { Home, Dumbbell, BarChart2, User } from 'lucide-react-native';
 import { colors } from '@/constants/colors';
+import { TabParamList } from '@/types/navigation';
 
 export default function TabLayout() {
   return (
-    <Tabs
+    <Tabs<TabParamList>
       screenOptions={{
         tabBarActiveTintColor: colors.primary,
         tabBarInactiveTintColor: colors.textSecondary,
@@ -16,7 +17,7 @@ export default function TabLayout() {
           elevation: 0,
           shadowOpacity: 0,
         },
-        headerShown: false, // This removes the header at the top
+        headerShown: false,
         tabBarLabelStyle: {
           fontSize: 12,
         }

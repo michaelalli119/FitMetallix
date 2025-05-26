@@ -10,9 +10,9 @@ import CustomSplashScreen from "@/components/SplashScreen";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { trpc, trpcClient } from "@/lib/trpc";
 import { useUserStore } from "@/store/userStore";
+import { RootStackParamList } from "@/types/navigation";
 
 export const unstable_settings = {
-  // Ensure that reloading on `/modal` keeps a back button present.
   initialRouteName: "(tabs)",
 };
 
@@ -78,7 +78,7 @@ function RootLayoutNav() {
   return (
     <>
       <StatusBar style="light" />
-      <Stack
+      <Stack<RootStackParamList>
         screenOptions={{
           headerBackTitle: "Back",
           headerStyle: {
