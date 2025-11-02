@@ -40,10 +40,10 @@ export default function LoginScreen() {
       
       if (isLogin) {
         // In a real app, this would validate credentials with a backend
-        console.log('Logging in with:', email, password);
+        console.log('Logging in...');
       } else {
         // In a real app, this would create a new account
-        console.log('Signing up with:', email, password);
+        console.log('Signing up...');
       }
       
       // Set default profile name from email
@@ -66,8 +66,8 @@ export default function LoginScreen() {
   const handleSocialLogin = async (provider: 'apple' | 'google') => {
     try {
       // In a real app, this would trigger the respective social auth flow
-      console.log(`Authenticating with ${provider}`);
-      
+      console.log(`Authenticating with social provider...`);
+
       // Simulate authentication delay
       setIsLoading(true);
       await new Promise(resolve => setTimeout(resolve, 1500));
