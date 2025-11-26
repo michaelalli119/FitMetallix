@@ -12,6 +12,7 @@ interface ButtonProps {
   style?: ViewStyle;
   textStyle?: TextStyle;
   fullWidth?: boolean;
+  testID?: string;
 }
 
 export default function Button({
@@ -24,6 +25,7 @@ export default function Button({
   style,
   textStyle,
   fullWidth = false,
+  testID,
 }: ButtonProps) {
   const getButtonStyle = () => {
     let buttonStyle: ViewStyle = {};
@@ -117,6 +119,7 @@ export default function Button({
       onPress={onPress}
       disabled={disabled || loading}
       accessibilityRole="button"
+      testID={testID}
     >
       {loading ? (
         <ActivityIndicator

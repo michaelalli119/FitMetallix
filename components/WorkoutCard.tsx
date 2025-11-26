@@ -9,12 +9,13 @@ import { useWorkoutStore } from '@/store/workoutStore';
 interface WorkoutCardProps {
   workout: Workout;
   isFavorite?: boolean;
+  testID?: string;
 }
 
-export default function WorkoutCard({ workout, isFavorite = false }: WorkoutCardProps) {
+export default function WorkoutCard({ workout, isFavorite = false, testID }: WorkoutCardProps) {
   const router = useRouter();
   const { addToRecent, toggleFavorite, favoriteWorkouts } = useWorkoutStore();
-  
+
   const isFav = isFavorite || favoriteWorkouts.includes(workout.id);
 
   const handlePress = () => {
@@ -33,39 +34,40 @@ export default function WorkoutCard({ workout, isFavorite = false }: WorkoutCard
   };
 
   return (
-    <Pressable 
+    <Pressable
       style={({ pressed }) => [
         styles.container,
         pressed && styles.pressed
       ]}
       onPress={handlePress}
+      testID={testID || `workout_card_${workout.id}`}
     >
       <Image source={{ uri: workout.imageUrl }} style={styles.image} />
       <View style={styles.overlay} />
-      
+
       <View style={styles.content}>
         <View style={styles.header}>
           <View style={styles.levelBadge}>
             <Text style={styles.levelText}>{workout.level}</Text>
           </View>
-          <Pressable 
+          <Pressable
             onPress={handleFavoritePress}
             style={({ pressed }) => [
               styles.favoriteButton,
               pressed && { opacity: 0.7 }
             ]}
           >
-            <Heart 
-              size={22} 
-              color={isFav ? colors.error : colors.white} 
-              fill={isFav ? colors.error : 'transparent'} 
+            <Heart
+              size={22}
+              color={isFav ? colors.error : colors.white}
+              fill={isFav ? colors.error : 'transparent'}
             />
           </Pressable>
         </View>
-        
+
         <View style={styles.footer}>
           <Text style={styles.title}>{workout.title}</Text>
-          
+
           <View style={styles.stats}>
             <View style={styles.stat}>
               <Clock size={16} color={colors.white} />

@@ -14,20 +14,20 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
 export default function WorkoutDetailsScreen() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const router = useRouter();
-  
+
   const { addToSaved, toggleFavorite, favoriteWorkouts, getSavedWorkout, addToRecent } = useWorkoutStore();
   const { updateProgress, progress, profile } = useUserStore();
-  
+
   const [workout, setWorkout] = useState<Workout | null>(null);
   const [isFavorite, setIsFavorite] = useState(false);
   const [isSaved, setIsSaved] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [aiTips, setAiTips] = useState<string | null>(null);
   const [loadingTips, setLoadingTips] = useState(false);
-  
+
   // Use tRPC to fetch workout details
   const workoutQuery = trpc.workouts.getWorkoutById.useQuery({ id: id as string });
-  
+
   // Use tRPC to update progress
   const updateProgressMutation = trpc.user.updateProgress.useMutation();
 
@@ -54,11 +54,11 @@ export default function WorkoutDetailsScreen() {
       setIsLoading(false);
     }
   }, [workoutQuery.status, id]);
-  
+
   // Generate AI tips based on user profile and workout
   const generateAITips = async (workout: Workout) => {
     if (!workout) return;
-    
+
     setLoadingTips(true);
     try {
       const response = await fetch('https://toolkit.rork.com/text/llm/', {
@@ -81,7 +81,7 @@ export default function WorkoutDetailsScreen() {
           ]
         })
       });
-      
+
       const data = await response.json();
       setAiTips(data.completion);
     } catch (error) {
@@ -91,62 +91,62 @@ export default function WorkoutDetailsScreen() {
       setLoadingTips(false);
     }
   };
-  
+
   useEffect(() => {
     if (!workout && !isLoading) {
       return;
     }
-    
+
     // Check if workout is favorited
     if (workout) {
       setIsFavorite(favoriteWorkouts.includes(workout.id));
-      
+
       // Check if workout is saved
       const savedWorkout = getSavedWorkout(workout.id);
       setIsSaved(!!savedWorkout);
-      
+
       // If it's saved, use the saved version
       if (savedWorkout) {
         setWorkout(savedWorkout);
       }
-      
+
       // Add to recent workouts
       if (id) {
         addToRecent(id);
       }
     }
   }, [workout, favoriteWorkouts, getSavedWorkout, id, addToRecent, isLoading]);
-  
+
   const handleFavorite = () => {
     if (!workout) return;
     toggleFavorite(workout.id);
     setIsFavorite(!isFavorite);
   };
-  
+
   const handleSave = () => {
     if (!workout) return;
     addToSaved(workout);
     setIsSaved(true);
     Alert.alert('Success', 'Workout saved to your collection');
   };
-  
+
   const handleShare = () => {
     Alert.alert('Share', 'Sharing functionality would be implemented here');
   };
-  
+
   const startWorkout = () => {
     if (!workout) return;
-    
+
     // Update progress stats
     const newCompletedWorkouts = progress.completedWorkouts + 1;
     const newTotalMinutes = progress.totalWorkoutMinutes + workout.duration;
-    
+
     // Calculate streak - in a real app, this would be more sophisticated
     const today = new Date().toISOString().split('T')[0];
-    const lastWorkoutDate = progress.lastWorkoutDate 
-      ? new Date(progress.lastWorkoutDate).toISOString().split('T')[0] 
+    const lastWorkoutDate = progress.lastWorkoutDate
+      ? new Date(progress.lastWorkoutDate).toISOString().split('T')[0]
       : null;
-    
+
     // If last workout was yesterday or this is first workout, increment streak
     // Otherwise, reset streak to 1
     let newStreak = 1;
@@ -154,32 +154,32 @@ export default function WorkoutDetailsScreen() {
       const yesterday = new Date();
       yesterday.setDate(yesterday.getDate() - 1);
       const yesterdayString = yesterday.toISOString().split('T')[0];
-      
+
       if (lastWorkoutDate === yesterdayString || lastWorkoutDate === today) {
         newStreak = progress.streakDays + 1;
       }
     }
-    
+
     const updatedProgress = {
       completedWorkouts: newCompletedWorkouts,
       totalWorkoutMinutes: newTotalMinutes,
       lastWorkoutDate: new Date().toISOString(),
       streakDays: newStreak,
     };
-    
+
     // Update local state
     updateProgress(updatedProgress);
-    
+
     // Update via API
     updateProgressMutation.mutate(updatedProgress);
-    
+
     // In a real app, this would navigate to a workout session screen
     Alert.alert(
       'Workout Started',
       `You've started the ${workout.title} workout! In a complete app, this would navigate to an interactive workout session screen with timers and exercise guidance.`,
       [
-        { 
-          text: 'Complete Workout', 
+        {
+          text: 'Complete Workout',
           onPress: () => {
             // Navigate back to home screen after completing the workout
             router.push('/(tabs)');
@@ -188,7 +188,7 @@ export default function WorkoutDetailsScreen() {
       ]
     );
   };
-  
+
   if (isLoading) {
     return (
       <View style={[styles.container, styles.loadingContainer]}>
@@ -197,7 +197,7 @@ export default function WorkoutDetailsScreen() {
       </View>
     );
   }
-  
+
   if (!workout) {
     return (
       <View style={[styles.container, styles.loadingContainer]}>
@@ -209,39 +209,41 @@ export default function WorkoutDetailsScreen() {
 
   return (
     <View style={styles.container}>
-      <Stack.Screen 
-        options={{ 
+      <Stack.Screen
+        options={{
           headerShown: false,
-        }} 
+        }}
       />
-      
+
       <ScrollView showsVerticalScrollIndicator={false}>
         {/* Header Image */}
         <View style={styles.imageContainer}>
           <Image source={{ uri: workout.imageUrl }} style={styles.image} />
           <View style={styles.overlay} />
-          
+
           <View style={styles.headerControls}>
-            <Pressable 
+            <Pressable
               style={styles.backButton}
               onPress={() => router.back()}
+              testID="workout_details.back_button"
             >
               <ArrowLeft size={24} color={colors.white} />
             </Pressable>
-            
+
             <View style={styles.headerActions}>
-              <Pressable 
+              <Pressable
                 style={styles.actionButton}
                 onPress={handleFavorite}
+                testID="workout_details.favorite_button"
               >
-                <Heart 
-                  size={24} 
-                  color={colors.white} 
-                  fill={isFavorite ? colors.error : 'transparent'} 
+                <Heart
+                  size={24}
+                  color={colors.white}
+                  fill={isFavorite ? colors.error : 'transparent'}
                 />
               </Pressable>
-              
-              <Pressable 
+
+              <Pressable
                 style={styles.actionButton}
                 onPress={handleShare}
               >
@@ -249,14 +251,14 @@ export default function WorkoutDetailsScreen() {
               </Pressable>
             </View>
           </View>
-          
+
           <View style={styles.headerContent}>
             <View style={styles.levelBadge}>
               <Text style={styles.levelText}>{workout.level}</Text>
             </View>
-            
+
             <Text style={styles.title}>{workout.title}</Text>
-            
+
             <View style={styles.stats}>
               <View style={styles.stat}>
                 <Clock size={16} color={colors.white} />
@@ -269,7 +271,7 @@ export default function WorkoutDetailsScreen() {
             </View>
           </View>
         </View>
-        
+
         {/* Content */}
         <View style={styles.content}>
           {/* AI Tips */}
@@ -286,15 +288,20 @@ export default function WorkoutDetailsScreen() {
               )}
             </View>
           )}
-          
+
           <Text style={styles.sectionTitle}>Description</Text>
           <Text style={styles.description}>{workout.description}</Text>
-          
+
           <Text style={styles.sectionTitle}>Exercises</Text>
           {workout.exercises.map((exercise, index) => (
-            <ExerciseItem key={exercise.id} exercise={exercise} index={index} />
+            <ExerciseItem
+              key={exercise.id}
+              exercise={exercise}
+              index={index}
+              testID={`workout_details.exercise_${index}`}
+            />
           ))}
-          
+
           {!isSaved && (
             <Button
               title="Save Workout"
@@ -305,7 +312,7 @@ export default function WorkoutDetailsScreen() {
           )}
         </View>
       </ScrollView>
-      
+
       {/* Start Button */}
       <View style={styles.startButtonContainer}>
         <Button
@@ -314,6 +321,7 @@ export default function WorkoutDetailsScreen() {
           style={styles.startButton}
           textStyle={styles.startButtonText}
           fullWidth
+          testID="workout_details.start_button"
         />
       </View>
     </View>

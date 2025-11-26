@@ -6,14 +6,15 @@ import { Exercise } from '@/constants/workouts';
 interface ExerciseItemProps {
   exercise: Exercise;
   index: number;
+  testID?: string;
 }
 
-export default function ExerciseItem({ exercise, index }: ExerciseItemProps) {
+export default function ExerciseItem({ exercise, index, testID }: ExerciseItemProps) {
   // Format duration to minutes and seconds
   const formatDuration = (seconds: number) => {
     const minutes = Math.floor(seconds / 60);
     const remainingSeconds = seconds % 60;
-    
+
     if (minutes > 0) {
       return `${minutes}m ${remainingSeconds > 0 ? remainingSeconds + 's' : ''}`;
     }
@@ -21,19 +22,19 @@ export default function ExerciseItem({ exercise, index }: ExerciseItemProps) {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} testID={testID}>
       <View style={styles.indexContainer}>
         <Text style={styles.index}>{index + 1}</Text>
       </View>
-      
+
       <Image source={{ uri: exercise.imageUrl }} style={styles.image} />
-      
+
       <View style={styles.content}>
         <Text style={styles.name}>{exercise.name}</Text>
         <Text style={styles.description} numberOfLines={2}>
           {exercise.description}
         </Text>
-        
+
         <View style={styles.details}>
           {exercise.sets && (
             <View style={styles.detailItem}>
@@ -41,19 +42,19 @@ export default function ExerciseItem({ exercise, index }: ExerciseItemProps) {
               <Text style={styles.detailValue}>{exercise.sets}</Text>
             </View>
           )}
-          
+
           {exercise.reps && (
             <View style={styles.detailItem}>
               <Text style={styles.detailLabel}>Reps</Text>
               <Text style={styles.detailValue}>{exercise.reps}</Text>
             </View>
           )}
-          
+
           <View style={styles.detailItem}>
             <Text style={styles.detailLabel}>Time</Text>
             <Text style={styles.detailValue}>{formatDuration(exercise.duration)}</Text>
           </View>
-          
+
           {exercise.restTime && (
             <View style={styles.detailItem}>
               <Text style={styles.detailLabel}>Rest</Text>

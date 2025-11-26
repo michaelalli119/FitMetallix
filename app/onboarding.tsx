@@ -11,7 +11,7 @@ import BodyTypeCard from '@/components/BodyTypeCard';
 export default function OnboardingScreen() {
   const router = useRouter();
   const { updateProfile, setOnboarded } = useUserStore();
-  
+
   const [step, setStep] = useState(1);
   const [name, setName] = useState('');
   const [age, setAge] = useState('');
@@ -21,7 +21,7 @@ export default function OnboardingScreen() {
   const [fitnessGoals, setFitnessGoals] = useState<string[]>([]);
   const [selectedBodyType, setSelectedBodyType] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   // tRPC mutation for updating profile
   const updateProfileMutation = trpc.user.updateProfile.useMutation({
     onSuccess: (data) => {
@@ -37,13 +37,13 @@ export default function OnboardingScreen() {
       router.replace('/');
     }
   });
-  
+
   const fitnessLevels: { id: WorkoutLevel; label: string }[] = [
     { id: 'beginner', label: 'Beginner' },
     { id: 'intermediate', label: 'Intermediate' },
     { id: 'advanced', label: 'Advanced' },
   ];
-  
+
   const goalOptions = [
     'Lose Weight',
     'Build Muscle',
@@ -53,7 +53,7 @@ export default function OnboardingScreen() {
     'Better Sleep',
     'Overall Health',
   ];
-  
+
   const toggleGoal = (goal: string) => {
     if (fitnessGoals.includes(goal)) {
       setFitnessGoals(fitnessGoals.filter(g => g !== goal));
@@ -61,14 +61,14 @@ export default function OnboardingScreen() {
       setFitnessGoals([...fitnessGoals, goal]);
     }
   };
-  
+
   const handleNext = () => {
     if (step < 4) {
       setStep(step + 1);
     } else {
       // Save all user data
       setIsSubmitting(true);
-      
+
       const profileData = {
         name,
         age: age ? parseInt(age) : null,
@@ -78,21 +78,21 @@ export default function OnboardingScreen() {
         fitnessGoals,
         bodyType: selectedBodyType as any,
       };
-      
+
       // Update local state
       updateProfile(profileData);
-      
+
       // Update via API
       updateProfileMutation.mutate(profileData);
     }
   };
-  
+
   const handleBack = () => {
     if (step > 1) {
       setStep(step - 1);
     }
   };
-  
+
   const isNextDisabled = () => {
     switch (step) {
       case 1:
@@ -107,7 +107,7 @@ export default function OnboardingScreen() {
         return false;
     }
   };
-  
+
   const renderStep = () => {
     switch (step) {
       case 1:
@@ -117,7 +117,7 @@ export default function OnboardingScreen() {
             <Text style={styles.stepDescription}>
               We'll use this information to personalize your experience
             </Text>
-            
+
             <View style={styles.inputContainer}>
               <Text style={styles.inputLabel}>Name</Text>
               <TextInput
@@ -127,9 +127,10 @@ export default function OnboardingScreen() {
                 placeholder="Your name"
                 placeholderTextColor={colors.textSecondary}
                 cursorColor={colors.primary}
+                testID="onboarding_screen.name_input"
               />
             </View>
-            
+
             <View style={styles.inputContainer}>
               <Text style={styles.inputLabel}>Age (optional)</Text>
               <TextInput
@@ -142,7 +143,7 @@ export default function OnboardingScreen() {
                 cursorColor={colors.primary}
               />
             </View>
-            
+
             <View style={styles.rowInputs}>
               <View style={[styles.inputContainer, { flex: 1, marginRight: 8 }]}>
                 <Text style={styles.inputLabel}>Weight (kg)</Text>
@@ -156,7 +157,7 @@ export default function OnboardingScreen() {
                   cursorColor={colors.primary}
                 />
               </View>
-              
+
               <View style={[styles.inputContainer, { flex: 1, marginLeft: 8 }]}>
                 <Text style={styles.inputLabel}>Height (cm)</Text>
                 <TextInput
@@ -172,7 +173,7 @@ export default function OnboardingScreen() {
             </View>
           </View>
         );
-      
+
       case 2:
         return (
           <View style={styles.stepContainer}>
@@ -180,7 +181,7 @@ export default function OnboardingScreen() {
             <Text style={styles.stepDescription}>
               Select all that apply to you
             </Text>
-            
+
             <View style={styles.goalsContainer}>
               {goalOptions.map(goal => (
                 <Pressable
@@ -190,6 +191,7 @@ export default function OnboardingScreen() {
                     fitnessGoals.includes(goal) && styles.selectedGoal
                   ]}
                   onPress={() => toggleGoal(goal)}
+                  testID={`onboarding_screen.goal_${goal.replace(/\s+/g, '_').toLowerCase()}`}
                 >
                   <Text
                     style={[
@@ -204,7 +206,7 @@ export default function OnboardingScreen() {
             </View>
           </View>
         );
-      
+
       case 3:
         return (
           <View style={styles.stepContainer}>
@@ -212,7 +214,7 @@ export default function OnboardingScreen() {
             <Text style={styles.stepDescription}>
               This helps us recommend appropriate workouts
             </Text>
-            
+
             <View style={styles.levelsContainer}>
               {fitnessLevels.map(level => (
                 <Pressable
@@ -222,6 +224,7 @@ export default function OnboardingScreen() {
                     fitnessLevel === level.id && styles.selectedLevel
                   ]}
                   onPress={() => setFitnessLevel(level.id)}
+                  testID={`onboarding_screen.level_${level.id}`}
                 >
                   <Text
                     style={[
@@ -231,7 +234,7 @@ export default function OnboardingScreen() {
                   >
                     {level.label}
                   </Text>
-                  
+
                   {level.id === 'beginner' && (
                     <Text style={[
                       styles.levelDescription,
@@ -240,7 +243,7 @@ export default function OnboardingScreen() {
                       New to fitness or returning after a long break
                     </Text>
                   )}
-                  
+
                   {level.id === 'intermediate' && (
                     <Text style={[
                       styles.levelDescription,
@@ -249,7 +252,7 @@ export default function OnboardingScreen() {
                       Consistent with workouts for several months
                     </Text>
                   )}
-                  
+
                   {level.id === 'advanced' && (
                     <Text style={[
                       styles.levelDescription,
@@ -263,7 +266,7 @@ export default function OnboardingScreen() {
             </View>
           </View>
         );
-      
+
       case 4:
         return (
           <View style={styles.stepContainer}>
@@ -271,7 +274,7 @@ export default function OnboardingScreen() {
             <Text style={styles.stepDescription}>
               This helps us tailor workouts to your specific needs
             </Text>
-            
+
             <ScrollView showsVerticalScrollIndicator={false}>
               {bodyTypes.map(bodyType => (
                 <BodyTypeCard
@@ -284,7 +287,7 @@ export default function OnboardingScreen() {
             </ScrollView>
           </View>
         );
-      
+
       default:
         return null;
     }
@@ -303,15 +306,15 @@ export default function OnboardingScreen() {
           />
         ))}
       </View>
-      
-      <ScrollView 
+
+      <ScrollView
         style={styles.content}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
         {renderStep()}
       </ScrollView>
-      
+
       <View style={styles.buttonsContainer}>
         {step > 1 && (
           <Button
@@ -319,15 +322,17 @@ export default function OnboardingScreen() {
             onPress={handleBack}
             variant="outline"
             style={{ flex: 1, marginRight: 8 }}
+            testID="onboarding_screen.back_button"
           />
         )}
-        
+
         <Button
           title={step === 4 ? "Finish" : "Next"}
           onPress={handleNext}
           disabled={isNextDisabled()}
           loading={isSubmitting}
           style={{ flex: 1, marginLeft: step > 1 ? 8 : 0 }}
+          testID="onboarding_screen.next_button"
         />
       </View>
     </View>

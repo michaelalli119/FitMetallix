@@ -19,14 +19,14 @@ export default function HomeScreen() {
   const { recentWorkouts } = useWorkoutStore();
   const [recommendedWorkouts, setRecommendedWorkouts] = useState<Workout[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   // Use tRPC to fetch recommended workouts
   const recommendedWorkoutsQuery = trpc.workouts.getRecommendedWorkouts.useQuery({
     bodyType: profile.bodyType || undefined,
     mood: profile.currentMood || undefined,
     limit: 3
   });
-  
+
   // Handle data loading and errors
   useEffect(() => {
     if (recommendedWorkoutsQuery.isSuccess) {
@@ -42,7 +42,7 @@ export default function HomeScreen() {
       setIsLoading(false);
     }
   }, [recommendedWorkoutsQuery.status, profile.bodyType]);
-  
+
   useEffect(() => {
     if (!isOnboarded) {
       router.push('/onboarding');
@@ -55,7 +55,7 @@ export default function HomeScreen() {
     : workouts;
 
   // Get recent workouts
-  const recentWorkoutsList = workouts.filter(workout => 
+  const recentWorkoutsList = workouts.filter(workout =>
     recentWorkouts.includes(workout.id)
   ).slice(0, 3);
 
@@ -71,32 +71,35 @@ export default function HomeScreen() {
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.content}>
         <Header />
-        
+
         {/* Quick Actions */}
         <View style={styles.quickActions}>
-          <Pressable 
+          <Pressable
             style={styles.quickAction}
             onPress={() => handleQuickActionPress('/body-scan')}
+            testID="home_screen.body_scan_button"
           >
             <View style={[styles.actionIcon, { backgroundColor: 'rgba(100, 181, 246, 0.15)' }]}>
               <Camera size={24} color={colors.primary} />
             </View>
             <Text style={styles.actionText}>Body Scan</Text>
           </Pressable>
-          
-          <Pressable 
+
+          <Pressable
             style={styles.quickAction}
             onPress={() => handleQuickActionPress('/voice-control')}
+            testID="home_screen.voice_control_button"
           >
             <View style={[styles.actionIcon, { backgroundColor: 'rgba(76, 175, 80, 0.15)' }]}>
               <Mic size={24} color={colors.secondary} />
             </View>
             <Text style={styles.actionText}>Voice Control</Text>
           </Pressable>
-          
-          <Pressable 
+
+          <Pressable
             style={styles.quickAction}
             onPress={() => handleQuickActionPress('/quick-workout')}
+            testID="home_screen.quick_workout_button"
           >
             <View style={[styles.actionIcon, { backgroundColor: 'rgba(255, 193, 7, 0.15)' }]}>
               <Zap size={24} color="#FFC107" />
@@ -104,13 +107,13 @@ export default function HomeScreen() {
             <Text style={styles.actionText}>Quick Workout</Text>
           </Pressable>
         </View>
-        
+
         {/* Health News */}
         <HealthNewsCard onPress={handleHealthNewsPress} />
-        
+
         {/* Mood Selector */}
         <MoodSelector />
-        
+
         {/* Mood-based Workouts */}
         {profile.currentMood && (
           <View style={styles.section}>
@@ -122,16 +125,17 @@ export default function HomeScreen() {
             ) : (
               <Text style={styles.emptyText}>No workouts found for your current mood</Text>
             )}
-            
-            <Button 
-              title="See All Workouts" 
+
+            <Button
+              title="See All Workouts"
               onPress={() => router.push('/(tabs)/workouts')}
               variant="outline"
               style={styles.seeAllButton}
+              testID="home_screen.see_all_workouts_button"
             />
           </View>
         )}
-        
+
         {/* Recent Workouts */}
         {recentWorkoutsList.length > 0 && (
           <View style={styles.section}>
@@ -141,15 +145,15 @@ export default function HomeScreen() {
             ))}
           </View>
         )}
-        
+
         {/* Recommended Workouts */}
         <View style={styles.section}>
           <Text style={styles.sectionTitle}>
-            {profile.bodyType 
-              ? `Recommended for ${profile.bodyType} body type` 
+            {profile.bodyType
+              ? `Recommended for ${profile.bodyType} body type`
               : 'Recommended Workouts'}
           </Text>
-          
+
           {isLoading ? (
             <Text style={styles.loadingText}>Loading recommendations...</Text>
           ) : (

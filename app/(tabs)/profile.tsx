@@ -1,7 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, View, ScrollView, Pressable, Alert, Image } from 'react-native';
 import { useRouter } from 'expo-router';
-import { 
+import {
   User, Settings, Bell, Heart, HelpCircle, LogOut, ChevronRight, Shield, Award
 } from 'lucide-react-native';
 import { colors } from '@/constants/colors';
@@ -11,7 +11,7 @@ import Button from '@/components/Button';
 export default function ProfileScreen() {
   const router = useRouter();
   const { profile, updateProfile, setOnboarded } = useUserStore();
-  
+
   const menuItems = [
     {
       id: 'personal',
@@ -56,7 +56,7 @@ export default function ProfileScreen() {
       onPress: () => router.push('/help'),
     },
   ];
-  
+
   const handleLogout = () => {
     Alert.alert(
       'Log Out',
@@ -77,7 +77,7 @@ export default function ProfileScreen() {
       ]
     );
   };
-  
+
   const handleBodyScan = () => {
     router.push('/body-scan');
   };
@@ -109,9 +109,9 @@ export default function ProfileScreen() {
               </Text>
             )}
           </View>
-          
+
           <Text style={styles.name}>{profile.name || 'User'}</Text>
-          
+
           <View style={styles.profileInfo}>
             {profile.bodyType && (
               <View style={styles.infoItem}>
@@ -119,7 +119,7 @@ export default function ProfileScreen() {
                 <Text style={styles.infoValue}>{profile.bodyType}</Text>
               </View>
             )}
-            
+
             {profile.fitnessLevel && (
               <View style={styles.infoItem}>
                 <Text style={styles.infoLabel}>Fitness Level</Text>
@@ -127,16 +127,17 @@ export default function ProfileScreen() {
               </View>
             )}
           </View>
-          
+
           <Button
             title="Edit Profile"
             onPress={() => router.push('/edit-profile')}
             variant="outline"
             size="small"
             style={styles.editButton}
+            testID="profile_screen.edit_button"
           />
         </View>
-        
+
         {/* Menu Items */}
         <View style={styles.menuContainer}>
           {menuItems.map(item => (
@@ -148,6 +149,7 @@ export default function ProfileScreen() {
                 item.id === menuItems[menuItems.length - 1].id && styles.lastMenuItem
               ]}
               onPress={() => handleMenuItemPress(item)}
+              testID={`profile_screen.menu_${item.id}`}
             >
               <View style={styles.menuItemContent}>
                 <View style={styles.menuItemIcon}>
@@ -159,7 +161,7 @@ export default function ProfileScreen() {
             </Pressable>
           ))}
         </View>
-        
+
         {/* Logout Button */}
         <Pressable
           style={({ pressed }) => [
@@ -167,11 +169,12 @@ export default function ProfileScreen() {
             pressed && styles.logoutButtonPressed
           ]}
           onPress={handleLogout}
+          testID="profile_screen.logout_button"
         >
           <LogOut size={20} color={colors.error} />
           <Text style={styles.logoutText}>Log Out</Text>
         </Pressable>
-        
+
         {/* App Version */}
         <Text style={styles.versionText}>Version 1.0.0</Text>
       </View>

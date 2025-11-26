@@ -11,33 +11,33 @@ import SocialLoginButton from '@/components/SocialLoginButton';
 export default function LoginScreen() {
   const router = useRouter();
   const { setOnboarded, updateProfile } = useUserStore();
-  
+
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isLogin, setIsLogin] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
   };
-  
+
   const toggleAuthMode = () => {
     setIsLogin(!isLogin);
   };
-  
+
   const handleAuth = async () => {
     if (!email || !password) {
       Alert.alert('Error', 'Please fill in all fields');
       return;
     }
-    
+
     setIsLoading(true);
-    
+
     try {
       // Simulate authentication delay
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
+
       if (isLogin) {
         // In a real app, this would validate credentials with a backend
         console.log('Logging in...');
@@ -45,14 +45,14 @@ export default function LoginScreen() {
         // In a real app, this would create a new account
         console.log('Signing up...');
       }
-      
+
       // Set default profile name from email
       const name = email.split('@')[0];
       updateProfile({ name });
-      
+
       // Set as onboarded to skip onboarding
       setOnboarded(true);
-      
+
       // Navigate to home or onboarding based on whether it's a new account
       router.replace(isLogin ? '/' : '/onboarding');
     } catch (error) {
@@ -62,7 +62,7 @@ export default function LoginScreen() {
       setIsLoading(false);
     }
   };
-  
+
   const handleSocialLogin = async (provider: 'apple' | 'google') => {
     try {
       // In a real app, this would trigger the respective social auth flow
@@ -71,13 +71,13 @@ export default function LoginScreen() {
       // Simulate authentication delay
       setIsLoading(true);
       await new Promise(resolve => setTimeout(resolve, 1500));
-      
+
       // Set default profile name
       updateProfile({ name: provider === 'apple' ? 'Apple User' : 'Google User' });
-      
+
       // Set as onboarded to skip onboarding
       setOnboarded(true);
-      
+
       // Navigate to home
       router.replace('/');
     } catch (error) {
@@ -87,13 +87,13 @@ export default function LoginScreen() {
       setIsLoading(false);
     }
   };
-  
+
   const handleSkip = () => {
     router.replace('/onboarding');
   };
 
   return (
-    <KeyboardAvoidingView 
+    <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 50 : 0}
@@ -102,25 +102,25 @@ export default function LoginScreen() {
         colors={['#1a1a1a', '#2d2d2d']}
         style={styles.background}
       />
-      
-      <ScrollView 
+
+      <ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       >
         <View style={styles.logoContainer}>
-          <Image 
-            source={{ uri: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80' }} 
+          <Image
+            source={{ uri: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80' }}
             style={styles.logoImage}
           />
           <Text style={styles.appName}>FitMetallic</Text>
           <Text style={styles.tagline}>Forge your fitness journey</Text>
         </View>
-        
+
         <View style={styles.formContainer}>
           <Text style={styles.formTitle}>
             {isLogin ? 'Welcome Back' : 'Create Account'}
           </Text>
-          
+
           <View style={styles.inputContainer}>
             <Mail size={20} color={colors.textSecondary} style={styles.inputIcon} />
             <TextInput
@@ -133,9 +133,10 @@ export default function LoginScreen() {
               autoCapitalize="none"
               autoCorrect={false}
               cursorColor={colors.primary}
+              testID="login_screen.email_input"
             />
           </View>
-          
+
           <View style={styles.inputContainer}>
             <Lock size={20} color={colors.textSecondary} style={styles.inputIcon} />
             <TextInput
@@ -148,8 +149,9 @@ export default function LoginScreen() {
               autoCapitalize="none"
               autoCorrect={false}
               cursorColor={colors.primary}
+              testID="login_screen.password_input"
             />
-            <TouchableOpacity 
+            <TouchableOpacity
               onPress={togglePasswordVisibility}
               style={styles.passwordToggle}
             >
@@ -160,27 +162,28 @@ export default function LoginScreen() {
               )}
             </TouchableOpacity>
           </View>
-          
+
           {isLogin && (
             <TouchableOpacity style={styles.forgotPassword}>
               <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
             </TouchableOpacity>
           )}
-          
+
           <Button
             title={isLogin ? 'Log In' : 'Sign Up'}
             onPress={handleAuth}
             loading={isLoading}
             style={styles.authButton}
             fullWidth
+            testID="login_screen.login_button"
           />
-          
+
           <View style={styles.divider}>
             <View style={styles.dividerLine} />
             <Text style={styles.dividerText}>OR</Text>
             <View style={styles.dividerLine} />
           </View>
-          
+
           <View style={styles.socialButtons}>
             <SocialLoginButton
               provider="apple"
@@ -193,10 +196,11 @@ export default function LoginScreen() {
               disabled={isLoading}
             />
           </View>
-          
-          <TouchableOpacity 
+
+          <TouchableOpacity
             style={styles.toggleAuth}
             onPress={toggleAuthMode}
+            testID="login_screen.signup_link"
           >
             <Text style={styles.toggleAuthText}>
               {isLogin ? "Don't have an account? " : "Already have an account? "}
@@ -205,8 +209,8 @@ export default function LoginScreen() {
               </Text>
             </Text>
           </TouchableOpacity>
-          
-          <TouchableOpacity 
+
+          <TouchableOpacity
             style={styles.skipButton}
             onPress={handleSkip}
           >
