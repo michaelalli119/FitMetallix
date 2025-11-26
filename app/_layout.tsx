@@ -1,9 +1,10 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { Stack, useRouter, useSegments } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { StatusBar } from "expo-status-bar";
+import "react-native-reanimated";
 import { View, StyleSheet } from "react-native";
 import { colors } from "@/constants/colors";
 import CustomSplashScreen from "@/components/SplashScreen";
@@ -76,11 +77,11 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const { isOnboarded } = useUserStore();
-  
+
   return (
     <>
       <StatusBar style="light" />
-      <Stack<RootStackParamList>
+      <Stack
         screenOptions={{
           headerBackTitle: "Back",
           headerStyle: {

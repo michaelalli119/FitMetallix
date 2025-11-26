@@ -1,11 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1764193612722" clover="3.2.0">
-  <project timestamp="1764193612722" name="All files">
-    <metrics statements="1210" coveredstatements="199" conditionals="642" coveredconditionals="77" methods="293" coveredmethods="59" elements="2145" coveredelements="335" complexity="0" loc="1210" ncloc="1210" packages="12" files="47" classes="47"/>
+<coverage generated="1764194601496" clover="3.2.0">
+  <project timestamp="1764194601496" name="All files">
+    <metrics statements="1171" coveredstatements="199" conditionals="549" coveredconditionals="66" methods="268" coveredmethods="59" elements="1988" coveredelements="324" complexity="0" loc="1171" ncloc="1171" packages="12" files="47" classes="47"/>
     <package name="app">
-      <metrics statements="637" coveredstatements="0" conditionals="353" coveredconditionals="0" methods="149" coveredmethods="0"/>
+      <metrics statements="684" coveredstatements="0" conditionals="327" coveredconditionals="0" methods="156" coveredmethods="0"/>
+      <file name="_layout.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/_layout.tsx">
+        <metrics statements="41" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="11" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="17" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="32" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="36" count="0" type="stmt"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="38" count="0" type="stmt"/>
+        <line num="39" count="0" type="stmt"/>
+        <line num="43" count="0" type="stmt"/>
+        <line num="44" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="46" count="0" type="stmt"/>
+        <line num="47" count="0" type="stmt"/>
+        <line num="52" count="0" type="stmt"/>
+        <line num="53" count="0" type="stmt"/>
+        <line num="56" count="0" type="cond" truecount="0" falsecount="3"/>
+        <line num="57" count="0" type="stmt"/>
+        <line num="60" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="61" count="0" type="stmt"/>
+        <line num="69" count="0" type="stmt"/>
+        <line num="79" count="0" type="stmt"/>
+        <line num="81" count="0" type="stmt"/>
+        <line num="117" count="0" type="stmt"/>
+      </file>
       <file name="achievements.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/achievements.tsx">
-        <metrics statements="40" coveredstatements="0" conditionals="38" coveredconditionals="0" methods="11" coveredmethods="0"/>
+        <metrics statements="40" coveredstatements="0" conditionals="34" coveredconditionals="0" methods="11" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -25,16 +69,16 @@
         <line num="34" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="35" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
-        <line num="37" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="37" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="38" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
         <line num="47" count="0" type="stmt"/>
         <line num="132" count="0" type="stmt"/>
-        <line num="133" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="134" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="135" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="133" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="134" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="135" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="136" count="0" type="stmt"/>
         <line num="140" count="0" type="stmt"/>
         <line num="141" count="0" type="stmt"/>
@@ -48,7 +92,7 @@
         <line num="278" count="0" type="stmt"/>
       </file>
       <file name="body-scan.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/body-scan.tsx">
-        <metrics statements="60" coveredstatements="0" conditionals="20" coveredconditionals="0" methods="15" coveredmethods="0"/>
+        <metrics statements="60" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="15" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -81,7 +125,7 @@
         <line num="41" count="0" type="stmt"/>
         <line num="42" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="45" count="0" type="stmt"/>
-        <line num="46" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="46" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="48" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
@@ -95,13 +139,13 @@
         <line num="79" count="0" type="stmt"/>
         <line num="80" count="0" type="stmt"/>
         <line num="83" count="0" type="stmt"/>
-        <line num="84" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="84" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="85" count="0" type="stmt"/>
         <line num="86" count="0" type="stmt"/>
         <line num="89" count="0" type="stmt"/>
-        <line num="94" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="94" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="96" count="0" type="stmt"/>
-        <line num="103" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="103" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="105" count="0" type="stmt"/>
         <line num="124" count="0" type="stmt"/>
         <line num="132" count="0" type="stmt"/>
@@ -111,7 +155,7 @@
         <line num="270" count="0" type="stmt"/>
       </file>
       <file name="edit-profile.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/edit-profile.tsx">
-        <metrics statements="50" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="10" coveredmethods="0"/>
+        <metrics statements="50" coveredstatements="0" conditionals="31" coveredconditionals="0" methods="10" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -135,14 +179,14 @@
         <line num="30" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="39" count="0" type="cond" truecount="0" falsecount="5"/>
+        <line num="39" count="0" type="cond" truecount="0" falsecount="4"/>
         <line num="40" count="0" type="stmt"/>
         <line num="43" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
         <line num="51" count="0" type="stmt"/>
-        <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="53" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="54" count="0" type="stmt"/>
         <line num="55" count="0" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
@@ -164,7 +208,7 @@
         <line num="261" count="0" type="stmt"/>
       </file>
       <file name="favorites.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/favorites.tsx">
-        <metrics statements="39" coveredstatements="0" conditionals="14" coveredconditionals="0" methods="11" coveredmethods="0"/>
+        <metrics statements="39" coveredstatements="0" conditionals="11" coveredconditionals="0" methods="11" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -185,18 +229,18 @@
         <line num="22" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="23" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
-        <line num="25" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="25" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="26" count="0" type="stmt"/>
         <line num="28" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="38" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="39" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
         <line num="44" count="0" type="stmt"/>
-        <line num="45" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="45" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="47" count="0" type="stmt"/>
         <line num="60" count="0" type="stmt"/>
         <line num="67" count="0" type="stmt"/>
@@ -250,7 +294,7 @@
         <line num="175" count="0" type="stmt"/>
       </file>
       <file name="login.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/login.tsx">
-        <metrics statements="55" coveredstatements="0" conditionals="28" coveredconditionals="0" methods="10" coveredmethods="0"/>
+        <metrics statements="55" coveredstatements="0" conditionals="27" coveredconditionals="0" methods="10" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -273,7 +317,7 @@
         <line num="25" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
         <line num="29" count="0" type="stmt"/>
-        <line num="30" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="30" count="0" type="cond" truecount="0" falsecount="3"/>
         <line num="31" count="0" type="stmt"/>
         <line num="32" count="0" type="stmt"/>
         <line num="35" count="0" type="stmt"/>
@@ -306,6 +350,15 @@
         <line num="190" count="0" type="stmt"/>
         <line num="195" count="0" type="stmt"/>
         <line num="227" count="0" type="stmt"/>
+      </file>
+      <file name="modal.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/modal.tsx">
+        <metrics statements="6" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="1" count="0" type="stmt"/>
+        <line num="2" count="0" type="stmt"/>
+        <line num="3" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
       </file>
       <file name="notifications.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/notifications.tsx">
         <metrics statements="32" coveredstatements="0" conditionals="27" coveredconditionals="0" methods="6" coveredmethods="0"/>
@@ -343,7 +396,7 @@
         <line num="204" count="0" type="stmt"/>
       </file>
       <file name="onboarding.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/onboarding.tsx">
-        <metrics statements="68" coveredstatements="0" conditionals="52" coveredconditionals="0" methods="16" coveredmethods="0"/>
+        <metrics statements="68" coveredstatements="0" conditionals="51" coveredconditionals="0" methods="16" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -387,7 +440,7 @@
         <line num="83" count="0" type="stmt"/>
         <line num="86" count="0" type="stmt"/>
         <line num="90" count="0" type="stmt"/>
-        <line num="91" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="91" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="92" count="0" type="stmt"/>
         <line num="96" count="0" type="stmt"/>
         <line num="97" count="0" type="cond" truecount="0" falsecount="5"/>
@@ -414,7 +467,7 @@
         <line num="342" count="0" type="stmt"/>
       </file>
       <file name="quick-workout.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/quick-workout.tsx">
-        <metrics statements="53" coveredstatements="0" conditionals="32" coveredconditionals="0" methods="15" coveredmethods="0"/>
+        <metrics statements="53" coveredstatements="0" conditionals="26" coveredconditionals="0" methods="15" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -432,32 +485,32 @@
         <line num="95" count="0" type="stmt"/>
         <line num="97" count="0" type="stmt"/>
         <line num="99" count="0" type="stmt"/>
-        <line num="100" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="100" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="101" count="0" type="stmt"/>
         <line num="107" count="0" type="stmt"/>
         <line num="114" count="0" type="stmt"/>
         <line num="115" count="0" type="stmt"/>
         <line num="117" count="0" type="stmt"/>
-        <line num="118" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="118" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="119" count="0" type="stmt"/>
         <line num="125" count="0" type="stmt"/>
         <line num="133" count="0" type="stmt"/>
         <line num="134" count="0" type="stmt"/>
         <line num="137" count="0" type="stmt"/>
-        <line num="138" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="138" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="140" count="0" type="stmt"/>
         <line num="141" count="0" type="stmt"/>
-        <line num="143" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="143" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="145" count="0" type="stmt"/>
         <line num="146" count="0" type="stmt"/>
         <line num="149" count="0" type="stmt"/>
         <line num="150" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="154" count="0" type="stmt"/>
-        <line num="155" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="155" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="156" count="0" type="stmt"/>
         <line num="157" count="0" type="stmt"/>
         <line num="158" count="0" type="stmt"/>
-        <line num="160" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="160" count="0" type="cond" truecount="0" falsecount="3"/>
         <line num="161" count="0" type="stmt"/>
         <line num="165" count="0" type="stmt"/>
         <line num="173" count="0" type="stmt"/>
@@ -507,7 +560,7 @@
         <line num="256" count="0" type="stmt"/>
       </file>
       <file name="voice-control.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/voice-control.tsx">
-        <metrics statements="67" coveredstatements="0" conditionals="26" coveredconditionals="0" methods="17" coveredmethods="0"/>
+        <metrics statements="67" coveredstatements="0" conditionals="25" coveredconditionals="0" methods="17" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -527,7 +580,7 @@
         <line num="35" count="0" type="stmt"/>
         <line num="36" count="0" type="stmt"/>
         <line num="37" count="0" type="stmt"/>
-        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="40" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="41" count="0" type="stmt"/>
         <line num="45" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
@@ -577,7 +630,7 @@
         <line num="204" count="0" type="stmt"/>
       </file>
       <file name="workout-details.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/workout-details.tsx">
-        <metrics statements="98" coveredstatements="0" conditionals="53" coveredconditionals="0" methods="13" coveredmethods="0"/>
+        <metrics statements="98" coveredstatements="0" conditionals="39" coveredconditionals="0" methods="13" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -606,9 +659,9 @@
         <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="37" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
-        <line num="40" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="40" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="41" count="0" type="stmt"/>
-        <line num="43" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="43" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="44" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
         <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
@@ -618,7 +671,7 @@
         <line num="52" count="0" type="stmt"/>
         <line num="54" count="0" type="stmt"/>
         <line num="59" count="0" type="stmt"/>
-        <line num="60" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="60" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="62" count="0" type="stmt"/>
         <line num="63" count="0" type="stmt"/>
         <line num="64" count="0" type="stmt"/>
@@ -628,48 +681,48 @@
         <line num="89" count="0" type="stmt"/>
         <line num="91" count="0" type="stmt"/>
         <line num="95" count="0" type="stmt"/>
-        <line num="96" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="96" count="0" type="cond" truecount="0" falsecount="3"/>
         <line num="97" count="0" type="stmt"/>
-        <line num="101" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="101" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="102" count="0" type="stmt"/>
         <line num="105" count="0" type="stmt"/>
         <line num="106" count="0" type="stmt"/>
-        <line num="109" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="109" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="110" count="0" type="stmt"/>
-        <line num="114" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="114" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="115" count="0" type="stmt"/>
         <line num="120" count="0" type="stmt"/>
-        <line num="121" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="121" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="122" count="0" type="stmt"/>
         <line num="123" count="0" type="stmt"/>
         <line num="126" count="0" type="stmt"/>
-        <line num="127" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="127" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="128" count="0" type="stmt"/>
         <line num="129" count="0" type="stmt"/>
         <line num="130" count="0" type="stmt"/>
         <line num="133" count="0" type="stmt"/>
         <line num="134" count="0" type="stmt"/>
         <line num="137" count="0" type="stmt"/>
-        <line num="138" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="138" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="141" count="0" type="stmt"/>
         <line num="142" count="0" type="stmt"/>
         <line num="145" count="0" type="stmt"/>
         <line num="146" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="152" count="0" type="stmt"/>
-        <line num="153" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="153" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="154" count="0" type="stmt"/>
         <line num="155" count="0" type="stmt"/>
         <line num="156" count="0" type="stmt"/>
-        <line num="158" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="158" count="0" type="cond" truecount="0" falsecount="3"/>
         <line num="159" count="0" type="stmt"/>
         <line num="163" count="0" type="stmt"/>
         <line num="171" count="0" type="stmt"/>
         <line num="174" count="0" type="stmt"/>
         <line num="177" count="0" type="stmt"/>
         <line num="185" count="0" type="stmt"/>
-        <line num="192" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="192" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="193" count="0" type="stmt"/>
-        <line num="201" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="201" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="202" count="0" type="stmt"/>
         <line num="205" count="0" type="stmt"/>
         <line num="210" count="0" type="stmt"/>
@@ -679,99 +732,7 @@
       </file>
     </package>
     <package name="app.(tabs)">
-      <metrics statements="164" coveredstatements="0" conditionals="98" coveredconditionals="0" methods="50" coveredmethods="0"/>
-      <file name="index.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/(tabs)/index.tsx">
-        <metrics statements="51" coveredstatements="0" conditionals="24" coveredconditionals="0" methods="15" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="18" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
-        <line num="24" count="0" type="stmt"/>
-        <line num="31" count="0" type="stmt"/>
-        <line num="32" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="33" count="0" type="stmt"/>
-        <line num="34" count="0" type="stmt"/>
-        <line num="35" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="36" count="0" type="stmt"/>
-        <line num="38" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="39" count="0" type="stmt"/>
-        <line num="41" count="0" type="stmt"/>
-        <line num="42" count="0" type="stmt"/>
-        <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="48" count="0" type="stmt"/>
-        <line num="53" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="54" count="0" type="stmt"/>
-        <line num="58" count="0" type="stmt"/>
-        <line num="59" count="0" type="stmt"/>
-        <line num="62" count="0" type="stmt"/>
-        <line num="63" count="0" type="stmt"/>
-        <line num="66" count="0" type="stmt"/>
-        <line num="67" count="0" type="stmt"/>
-        <line num="70" count="0" type="stmt"/>
-        <line num="79" count="0" type="stmt"/>
-        <line num="90" count="0" type="stmt"/>
-        <line num="101" count="0" type="stmt"/>
-        <line num="123" count="0" type="stmt"/>
-        <line num="131" count="0" type="stmt"/>
-        <line num="144" count="0" type="stmt"/>
-        <line num="161" count="0" type="stmt"/>
-        <line num="170" count="0" type="stmt"/>
-      </file>
-      <file name="profile.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/(tabs)/profile.tsx">
-        <metrics statements="35" coveredstatements="0" conditionals="20" coveredconditionals="0" methods="17" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="stmt"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="26" count="0" type="stmt"/>
-        <line num="32" count="0" type="stmt"/>
-        <line num="38" count="0" type="stmt"/>
-        <line num="44" count="0" type="stmt"/>
-        <line num="50" count="0" type="stmt"/>
-        <line num="56" count="0" type="stmt"/>
-        <line num="60" count="0" type="stmt"/>
-        <line num="61" count="0" type="stmt"/>
-        <line num="73" count="0" type="stmt"/>
-        <line num="74" count="0" type="stmt"/>
-        <line num="81" count="0" type="stmt"/>
-        <line num="82" count="0" type="stmt"/>
-        <line num="85" count="0" type="stmt"/>
-        <line num="87" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="88" count="0" type="stmt"/>
-        <line num="94" count="0" type="stmt"/>
-        <line num="98" count="0" type="stmt"/>
-        <line num="133" count="0" type="stmt"/>
-        <line num="144" count="0" type="stmt"/>
-        <line num="146" count="0" type="stmt"/>
-        <line num="151" count="0" type="stmt"/>
-        <line num="167" count="0" type="stmt"/>
-        <line num="185" count="0" type="stmt"/>
-      </file>
+      <metrics statements="78" coveredstatements="0" conditionals="49" coveredconditionals="0" methods="18" coveredmethods="0"/>
       <file name="progress.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/(tabs)/progress.tsx">
         <metrics statements="21" coveredstatements="0" conditionals="18" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
@@ -797,7 +758,7 @@
         <line num="145" count="0" type="stmt"/>
       </file>
       <file name="workouts.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/app/(tabs)/workouts.tsx">
-        <metrics statements="57" coveredstatements="0" conditionals="36" coveredconditionals="0" methods="15" coveredmethods="0"/>
+        <metrics statements="57" coveredstatements="0" conditionals="31" coveredconditionals="0" methods="15" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -821,7 +782,7 @@
         <line num="29" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="32" count="0" type="stmt"/>
         <line num="34" count="0" type="stmt"/>
-        <line num="36" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="36" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="37" count="0" type="stmt"/>
         <line num="38" count="0" type="stmt"/>
         <line num="40" count="0" type="stmt"/>
@@ -829,12 +790,12 @@
         <line num="52" count="0" type="stmt"/>
         <line num="60" count="0" type="stmt"/>
         <line num="61" count="0" type="stmt"/>
-        <line num="64" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="64" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="65" count="0" type="stmt"/>
         <line num="66" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="72" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="72" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="73" count="0" type="stmt"/>
-        <line num="77" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="77" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="78" count="0" type="stmt"/>
         <line num="81" count="0" type="stmt"/>
         <line num="85" count="0" type="stmt"/>
@@ -846,7 +807,7 @@
         <line num="94" count="0" type="stmt"/>
         <line num="97" count="0" type="stmt"/>
         <line num="102" count="0" type="stmt"/>
-        <line num="103" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="103" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="104" count="0" type="stmt"/>
         <line num="108" count="0" type="stmt"/>
         <line num="133" count="0" type="stmt"/>
@@ -912,9 +873,9 @@
       </file>
     </package>
     <package name="backend.trpc.routes.user">
-      <metrics statements="33" coveredstatements="31" conditionals="18" coveredconditionals="18" methods="5" coveredmethods="5"/>
+      <metrics statements="33" coveredstatements="31" conditionals="17" coveredconditionals="17" methods="5" coveredmethods="5"/>
       <file name="analyze-body-scan.ts" path="/Users/michaelalli/Documents/GitHub/FitMetallix/backend/trpc/routes/user/analyze-body-scan.ts">
-        <metrics statements="20" coveredstatements="18" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2"/>
+        <metrics statements="20" coveredstatements="18" conditionals="7" coveredconditionals="7" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -922,7 +883,7 @@
         <line num="20" count="9" type="stmt"/>
         <line num="24" count="9" type="stmt"/>
         <line num="25" count="9" type="stmt"/>
-        <line num="27" count="9" type="cond" truecount="4" falsecount="0"/>
+        <line num="27" count="9" type="cond" truecount="3" falsecount="0"/>
         <line num="28" count="7" type="stmt"/>
         <line num="30" count="7" type="cond" truecount="2" falsecount="0"/>
         <line num="31" count="1" type="stmt"/>
@@ -960,7 +921,7 @@
       </file>
     </package>
     <package name="backend.trpc.routes.workouts">
-      <metrics statements="40" coveredstatements="32" conditionals="12" coveredconditionals="11" methods="11" coveredmethods="9"/>
+      <metrics statements="40" coveredstatements="32" conditionals="6" coveredconditionals="5" methods="11" coveredmethods="9"/>
       <file name="get-favorite-workouts.ts" path="/Users/michaelalli/Documents/GitHub/FitMetallix/backend/trpc/routes/workouts/get-favorite-workouts.ts">
         <metrics statements="7" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
@@ -972,52 +933,52 @@
         <line num="17" count="0" type="stmt"/>
       </file>
       <file name="get-recommended-workouts.ts" path="/Users/michaelalli/Documents/GitHub/FitMetallix/backend/trpc/routes/workouts/get-recommended-workouts.ts">
-        <metrics statements="15" coveredstatements="14" conditionals="6" coveredconditionals="5" methods="4" coveredmethods="4"/>
+        <metrics statements="15" coveredstatements="14" conditionals="3" coveredconditionals="2" methods="4" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="14" count="18" type="stmt"/>
-        <line num="17" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="18" type="cond" truecount="1" falsecount="0"/>
         <line num="18" count="6" type="stmt"/>
         <line num="19" count="54" type="stmt"/>
-        <line num="24" count="18" type="cond" truecount="2" falsecount="0"/>
+        <line num="24" count="18" type="cond" truecount="1" falsecount="0"/>
         <line num="25" count="8" type="stmt"/>
         <line num="26" count="68" type="stmt"/>
-        <line num="31" count="18" type="cond" truecount="1" falsecount="1"/>
+        <line num="31" count="18" type="cond" truecount="0" falsecount="1"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="36" count="205" type="stmt"/>
+        <line num="36" count="213" type="stmt"/>
         <line num="39" count="18" type="stmt"/>
       </file>
       <file name="get-workout-by-id.ts" path="/Users/michaelalli/Documents/GitHub/FitMetallix/backend/trpc/routes/workouts/get-workout-by-id.ts">
-        <metrics statements="8" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="12" count="12" type="stmt"/>
-        <line num="14" count="4" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="4" type="cond" truecount="1" falsecount="0"/>
         <line num="15" count="1" type="stmt"/>
         <line num="18" count="3" type="stmt"/>
       </file>
       <file name="get-workouts.ts" path="/Users/michaelalli/Documents/GitHub/FitMetallix/backend/trpc/routes/workouts/get-workouts.ts">
-        <metrics statements="10" coveredstatements="10" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
         <line num="14" count="9" type="stmt"/>
-        <line num="17" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="9" type="cond" truecount="1" falsecount="0"/>
         <line num="18" count="27" type="stmt"/>
-        <line num="22" count="9" type="cond" truecount="2" falsecount="0"/>
+        <line num="22" count="9" type="cond" truecount="1" falsecount="0"/>
         <line num="23" count="11" type="stmt"/>
         <line num="27" count="9" type="stmt"/>
       </file>
     </package>
     <package name="components">
-      <metrics statements="243" coveredstatements="70" conditionals="153" coveredconditionals="40" methods="38" coveredmethods="8"/>
+      <metrics statements="243" coveredstatements="70" conditionals="144" coveredconditionals="38" methods="38" coveredmethods="8"/>
       <file name="AIWorkoutTips.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/components/AIWorkoutTips.tsx">
-        <metrics statements="23" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <metrics statements="23" coveredstatements="0" conditionals="7" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -1037,13 +998,13 @@
         <line num="47" count="0" type="stmt"/>
         <line num="48" count="0" type="stmt"/>
         <line num="50" count="0" type="stmt"/>
-        <line num="54" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="54" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="55" count="0" type="stmt"/>
         <line num="63" count="0" type="stmt"/>
         <line num="71" count="0" type="stmt"/>
       </file>
       <file name="AchievementCard.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/components/AchievementCard.tsx">
-        <metrics statements="26" coveredstatements="0" conditionals="26" coveredconditionals="0" methods="3" coveredmethods="0"/>
+        <metrics statements="26" coveredstatements="0" conditionals="24" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -1061,12 +1022,12 @@
         <line num="40" count="0" type="stmt"/>
         <line num="42" count="0" type="stmt"/>
         <line num="46" count="0" type="stmt"/>
-        <line num="47" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="47" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="48" count="0" type="stmt"/>
         <line num="49" count="0" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
         <line num="62" count="0" type="stmt"/>
-        <line num="112" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="112" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="113" count="0" type="stmt"/>
         <line num="120" count="0" type="stmt"/>
         <line num="123" count="0" type="stmt"/>
@@ -1083,7 +1044,7 @@
         <line num="49" count="0" type="stmt"/>
       </file>
       <file name="Button.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/components/Button.tsx">
-        <metrics statements="52" coveredstatements="52" conditionals="32" coveredconditionals="29" methods="4" coveredmethods="4"/>
+        <metrics statements="52" coveredstatements="52" conditionals="30" coveredconditionals="27" methods="4" coveredmethods="4"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -1113,9 +1074,9 @@
         <line num="64" count="1" type="stmt"/>
         <line num="65" count="1" type="stmt"/>
         <line num="66" count="1" type="stmt"/>
-        <line num="70" count="23" type="cond" truecount="2" falsecount="0"/>
+        <line num="70" count="23" type="cond" truecount="1" falsecount="0"/>
         <line num="71" count="1" type="stmt"/>
-        <line num="75" count="23" type="cond" truecount="2" falsecount="0"/>
+        <line num="75" count="23" type="cond" truecount="1" falsecount="0"/>
         <line num="76" count="3" type="stmt"/>
         <line num="79" count="23" type="stmt"/>
         <line num="82" count="23" type="stmt"/>
@@ -1138,7 +1099,7 @@
         <line num="138" count="1" type="stmt"/>
       </file>
       <file name="ExerciseItem.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/components/ExerciseItem.tsx">
-        <metrics statements="12" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="12" coveredstatements="0" conditionals="9" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -1146,14 +1107,14 @@
         <line num="14" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="16" count="0" type="stmt"/>
-        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="19" count="0" type="cond" truecount="0" falsecount="2"/>
         <line num="21" count="0" type="stmt"/>
         <line num="24" count="0" type="stmt"/>
         <line num="70" count="0" type="stmt"/>
       </file>
       <file name="Header.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/components/Header.tsx">
-        <metrics statements="13" coveredstatements="0" conditionals="11" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="13" coveredstatements="0" conditionals="9" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -1162,8 +1123,8 @@
         <line num="12" count="0" type="stmt"/>
         <line num="14" count="0" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="17" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="16" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="17" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="18" count="0" type="stmt"/>
         <line num="21" count="0" type="stmt"/>
         <line num="41" count="0" type="stmt"/>
@@ -1236,7 +1197,7 @@
         <line num="69" count="0" type="stmt"/>
       </file>
       <file name="SettingsItem.tsx" path="/Users/michaelalli/Documents/GitHub/FitMetallix/components/SettingsItem.tsx">
-        <metrics statements="11" coveredstatements="0" conditionals="10" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="11" coveredstatements="0" conditionals="9" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="0" type="stmt"/>
         <line num="2" count="0" type="stmt"/>
         <line num="3" count="0" type="stmt"/>
@@ -1244,7 +1205,7 @@
         <line num="15" count="0" type="stmt"/>
         <line num="23" count="0" type="stmt"/>
         <line num="26" count="0" type="stmt"/>
-        <line num="41" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="41" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="42" count="0" type="stmt"/>
         <line num="53" count="0" type="stmt"/>
         <line num="56" count="0" type="stmt"/>
@@ -1324,22 +1285,22 @@
       </file>
     </package>
     <package name="lib">
-      <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+      <metrics statements="9" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="trpc.ts" path="/Users/michaelalli/Documents/GitHub/FitMetallix/lib/trpc.ts">
-        <metrics statements="9" coveredstatements="9" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
+        <metrics statements="9" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="1" count="13" type="stmt"/>
         <line num="2" count="13" type="stmt"/>
         <line num="4" count="13" type="stmt"/>
         <line num="6" count="13" type="stmt"/>
         <line num="8" count="13" type="stmt"/>
-        <line num="9" count="13" type="cond" truecount="2" falsecount="0"/>
+        <line num="9" count="13" type="cond" truecount="1" falsecount="0"/>
         <line num="10" count="11" type="stmt"/>
         <line num="13" count="2" type="stmt"/>
         <line num="18" count="13" type="stmt"/>
       </file>
     </package>
     <package name="store">
-      <metrics statements="42" coveredstatements="42" conditionals="6" coveredconditionals="6" methods="34" coveredmethods="34"/>
+      <metrics statements="42" coveredstatements="42" conditionals="5" coveredconditionals="5" methods="34" coveredmethods="34"/>
       <file name="userStore.ts" path="/Users/michaelalli/Documents/GitHub/FitMetallix/store/userStore.ts">
         <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="15" coveredmethods="15"/>
         <line num="1" count="1" type="stmt"/>
@@ -1361,7 +1322,7 @@
         <line num="117" count="1" type="stmt"/>
       </file>
       <file name="workoutStore.ts" path="/Users/michaelalli/Documents/GitHub/FitMetallix/store/workoutStore.ts">
-        <metrics statements="25" coveredstatements="25" conditionals="6" coveredconditionals="6" methods="19" coveredmethods="19"/>
+        <metrics statements="25" coveredstatements="25" conditionals="5" coveredconditionals="5" methods="19" coveredmethods="19"/>
         <line num="1" count="2" type="stmt"/>
         <line num="2" count="2" type="stmt"/>
         <line num="3" count="2" type="stmt"/>
@@ -1369,7 +1330,7 @@
         <line num="26" count="2" type="stmt"/>
         <line num="32" count="29" type="stmt"/>
         <line num="34" count="29" type="stmt"/>
-        <line num="35" count="29" type="cond" truecount="2" falsecount="0"/>
+        <line num="35" count="29" type="cond" truecount="1" falsecount="0"/>
         <line num="37" count="23" type="stmt"/>
         <line num="43" count="23" type="stmt"/>
         <line num="48" count="5" type="stmt"/>

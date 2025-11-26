@@ -32,7 +32,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/53</span>
+                <span class='fraction'>0/39</span>
             </div>
         
             
@@ -1076,10 +1076,10 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
 <span class="cstat-no" title="statement not covered" >      setWorkout(workoutQuery.data);</span>
 <span class="cstat-no" title="statement not covered" >      setIsLoading(false);</span>
       // After loading workout, get AI tips
-<span class="cstat-no" title="statement not covered" >      if (workoutQuery.data) {</span>
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (workoutQuery.data) {</span>
 <span class="cstat-no" title="statement not covered" >        generateAITips(workoutQuery.data);</span>
       }
-    } else <span class="cstat-no" title="statement not covered" >if (workoutQuery.isError) {</span>
+    } else <span class="cstat-no" title="statement not covered" ><span class="missing-if-branch" title="if path not taken" >I</span>if (workoutQuery.isError) {</span>
 <span class="cstat-no" title="statement not covered" >      console.error("Error fetching workout:", workoutQuery.error);</span>
       // Fallback to local data if API fails
       const localWorkout = <span class="cstat-no" title="statement not covered" >workouts.find(<span class="fstat-no" title="function not covered" >w </span>=&gt; <span class="cstat-no" title="statement not covered" >w.id === id)</span>;</span>
@@ -1096,7 +1096,7 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
 &nbsp;
   // Generate AI tips based on user profile and workout
   const generateAITips = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(workout: Workout) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (!workout) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!workout) <span class="cstat-no" title="statement not covered" >return;</span></span>
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    setLoadingTips(true);</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
@@ -1132,12 +1132,12 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
   };
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (!workout &amp;&amp; !isLoading) {</span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!workout &amp;&amp; !isLoading) {</span>
 <span class="cstat-no" title="statement not covered" >      return;</span>
     }
 &nbsp;
     // Check if workout is favorited
-<span class="cstat-no" title="statement not covered" >    if (workout) {</span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (workout) {</span>
 <span class="cstat-no" title="statement not covered" >      setIsFavorite(favoriteWorkouts.includes(workout.id));</span>
 &nbsp;
       // Check if workout is saved
@@ -1145,25 +1145,25 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
 <span class="cstat-no" title="statement not covered" >      setIsSaved(!!savedWorkout);</span>
 &nbsp;
       // If it's saved, use the saved version
-<span class="cstat-no" title="statement not covered" >      if (savedWorkout) {</span>
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (savedWorkout) {</span>
 <span class="cstat-no" title="statement not covered" >        setWorkout(savedWorkout);</span>
       }
 &nbsp;
       // Add to recent workouts
-<span class="cstat-no" title="statement not covered" >      if (id) {</span>
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (id) {</span>
 <span class="cstat-no" title="statement not covered" >        addToRecent(id);</span>
       }
     }
   }, [workout, favoriteWorkouts, getSavedWorkout, id, addToRecent, isLoading]);
 &nbsp;
   const handleFavorite = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (!workout) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!workout) <span class="cstat-no" title="statement not covered" >return;</span></span>
 <span class="cstat-no" title="statement not covered" >    toggleFavorite(workout.id);</span>
 <span class="cstat-no" title="statement not covered" >    setIsFavorite(!isFavorite);</span>
   };
 &nbsp;
   const handleSave = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (!workout) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!workout) <span class="cstat-no" title="statement not covered" >return;</span></span>
 <span class="cstat-no" title="statement not covered" >    addToSaved(workout);</span>
 <span class="cstat-no" title="statement not covered" >    setIsSaved(true);</span>
 <span class="cstat-no" title="statement not covered" >    Alert.alert('Success', 'Workout saved to your collection');</span>
@@ -1174,7 +1174,7 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
   };
 &nbsp;
   const startWorkout = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    if (!workout) <span class="cstat-no" title="statement not covered" >return;</span></span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (!workout) <span class="cstat-no" title="statement not covered" >return;</span></span>
 &nbsp;
     // Update progress stats
     const newCompletedWorkouts = <span class="cstat-no" title="statement not covered" >progress.completedWorkouts + 1;</span>
@@ -1189,12 +1189,12 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
     // If last workout was yesterday or this is first workout, increment streak
     // Otherwise, reset streak to 1
     let newStreak = <span class="cstat-no" title="statement not covered" >1;</span>
-<span class="cstat-no" title="statement not covered" >    if (lastWorkoutDate) {</span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if (lastWorkoutDate) {</span>
       const yesterday = <span class="cstat-no" title="statement not covered" >new Date();</span>
 <span class="cstat-no" title="statement not covered" >      yesterday.setDate(yesterday.getDate() - 1);</span>
       const yesterdayString = <span class="cstat-no" title="statement not covered" >yesterday.toISOString().split('T')[0];</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >      if (lastWorkoutDate === yesterdayString || lastWorkoutDate === today) {</span>
+<span class="cstat-no" title="statement not covered" >      <span class="missing-if-branch" title="if path not taken" >I</span>if (lastWorkoutDate === yesterdayString || lastWorkoutDate === today) {</span>
 <span class="cstat-no" title="statement not covered" >        newStreak = progress.streakDays + 1;</span>
       }
     }
@@ -1228,7 +1228,7 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
     );
   };
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (isLoading) {</span>
+<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (isLoading) {</span>
 <span class="cstat-no" title="statement not covered" >    return (</span>
       &lt;View style={[styles.container, styles.loadingContainer]}&gt;
         &lt;ActivityIndicator size="large" color={colors.primary} /&gt;
@@ -1237,7 +1237,7 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
     );
   }
 &nbsp;
-<span class="cstat-no" title="statement not covered" >  if (!workout) {</span>
+<span class="cstat-no" title="statement not covered" >  <span class="missing-if-branch" title="if path not taken" >I</span>if (!workout) {</span>
 <span class="cstat-no" title="statement not covered" >    return (</span>
       &lt;View style={[styles.container, styles.loadingContainer]}&gt;
         &lt;Text style={styles.loadingText}&gt;Workout not found&lt;/Text&gt;
@@ -1531,7 +1531,7 @@ const styles = <span class="cstat-no" title="statement not covered" >StyleSheet.
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-26T21:46:52.626Z
+                at 2025-11-26T22:03:21.339Z
             </div>
         <script src="../prettify.js"></script>
         <script>
