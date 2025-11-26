@@ -1,6 +1,3 @@
-// Add custom jest matchers from react-native-testing-library
-require('@testing-library/react-native/extend-expect');
-
 // Mock AsyncStorage
 jest.mock('@react-native-async-storage/async-storage', () => ({
   setItem: jest.fn(() => Promise.resolve()),
@@ -84,9 +81,6 @@ jest.mock('lucide-react-native', () => ({
   Wind: 'Wind',
 }));
 
-// Silence the warning: Animated: `useNativeDriver` is not supported
-jest.mock('react-native/Libraries/Animated/NativeAnimatedHelper');
-
 // Mock window object for web-specific functionality
 global.window = global.window || {};
 global.window.frameworkReady = jest.fn();
@@ -98,3 +92,13 @@ global.console = {
   warn: jest.fn(),
   error: jest.fn(),
 };
+
+// Mock superjson
+jest.mock('superjson', () => ({
+  default: {
+    serialize: jest.fn((data) => data),
+    deserialize: jest.fn((data) => data),
+  },
+  serialize: jest.fn((data) => data),
+  deserialize: jest.fn((data) => data),
+}));

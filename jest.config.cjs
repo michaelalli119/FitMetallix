@@ -3,10 +3,11 @@ module.exports = {
   testEnvironment: 'node',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.cjs'],
   transformIgnorePatterns: [
-    'node_modules/(?!(@react-native|@expo|expo|react-native|@trpc|@tanstack)/)',
+    'node_modules/(?!(superjson|@trpc|@tanstack)/)',
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
+    '^superjson$': '<rootDir>/node_modules/superjson/dist/index.js',
   },
   collectCoverageFrom: [
     'app/**/*.{ts,tsx}',
