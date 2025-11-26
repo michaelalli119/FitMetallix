@@ -1,0 +1,36 @@
+appId: com.fitmetallix.app
+---
+- launchApp:
+    clearState: true
+
+# Navigate to Sign Up
+- tapOn: "login_screen.signup_link"
+
+# Step 1: Personal Info
+- assertVisible: "onboarding_screen.name_input"
+- tapOn: "onboarding_screen.name_input"
+- inputText: "Maestro User"
+- hideKeyboard
+- tapOn: "onboarding_screen.next_button"
+
+# Step 2: Goals
+- assertVisible: "onboarding_screen.goal_lose_weight"
+- tapOn: "onboarding_screen.goal_lose_weight"
+- tapOn: "onboarding_screen.goal_build_muscle"
+- tapOn: "onboarding_screen.next_button"
+
+# Step 3: Fitness Level
+- assertVisible: "onboarding_screen.level_beginner"
+- tapOn: "onboarding_screen.level_intermediate"
+- tapOn: "onboarding_screen.next_button"
+
+# Step 4: Body Type
+- scrollUntilVisible:
+    element:
+      text: "Mesomorph"
+    direction: DOWN
+- tapOn: "Mesomorph"
+- tapOn: "Finish"
+
+# Verify Home Screen
+- assertVisible: "home_screen.quick_workout_button"

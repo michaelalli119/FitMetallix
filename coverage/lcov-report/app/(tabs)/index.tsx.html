@@ -292,7 +292,11 @@
 <a name='L227'></a><a href='#L227'>227</a>
 <a name='L228'></a><a href='#L228'>228</a>
 <a name='L229'></a><a href='#L229'>229</a>
-<a name='L230'></a><a href='#L230'>230</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L230'></a><a href='#L230'>230</a>
+<a name='L231'></a><a href='#L231'>231</a>
+<a name='L232'></a><a href='#L232'>232</a>
+<a name='L233'></a><a href='#L233'>233</a>
+<a name='L234'></a><a href='#L234'>234</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -380,27 +384,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -419,7 +404,30 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -542,14 +550,14 @@
   const { recentWorkouts } = <span class="cstat-no" title="statement not covered" >useWorkoutStore();</span>
   const [recommendedWorkouts, setRecommendedWorkouts] = <span class="cstat-no" title="statement not covered" >useState&lt;Workout[]&gt;([]);</span>
   const [isLoading, setIsLoading] = <span class="cstat-no" title="statement not covered" >useState(true);</span>
-  
+&nbsp;
   // Use tRPC to fetch recommended workouts
   const recommendedWorkoutsQuery = <span class="cstat-no" title="statement not covered" >trpc.workouts.getRecommendedWorkouts.useQuery({</span>
     bodyType: profile.bodyType || undefined,
     mood: profile.currentMood || undefined,
     limit: 3
   });
-  
+&nbsp;
   // Handle data loading and errors
 <span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (recommendedWorkoutsQuery.isSuccess) {</span>
@@ -565,7 +573,7 @@
 <span class="cstat-no" title="statement not covered" >      setIsLoading(false);</span>
     }
   }, [recommendedWorkoutsQuery.status, profile.bodyType]);
-  
+&nbsp;
 <span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (!isOnboarded) {</span>
 <span class="cstat-no" title="statement not covered" >      router.push('/onboarding');</span>
@@ -578,7 +586,7 @@
     : workouts;
 &nbsp;
   // Get recent workouts
-  const recentWorkoutsList = <span class="cstat-no" title="statement not covered" >workouts.filter(<span class="fstat-no" title="function not covered" >workout </span>=&gt; </span>
+  const recentWorkoutsList = <span class="cstat-no" title="statement not covered" >workouts.filter(<span class="fstat-no" title="function not covered" >workout </span>=&gt;</span>
 <span class="cstat-no" title="statement not covered" >    recentWorkouts.includes(workout.id)</span>
   ).slice(0, 3);
 &nbsp;
@@ -594,32 +602,35 @@
     &lt;ScrollView style={styles.container} showsVerticalScrollIndicator={false}&gt;
       &lt;View style={styles.content}&gt;
         &lt;Header /&gt;
-        
+&nbsp;
         {/* Quick Actions */}
         &lt;View style={styles.quickActions}&gt;
-          &lt;Pressable 
+          &lt;Pressable
             style={styles.quickAction}
             onPress={<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >handleQuickActionPress('/body-scan')}</span>
+            testID="home_screen.body_scan_button"
           &gt;
             &lt;View style={[styles.actionIcon, { backgroundColor: 'rgba(100, 181, 246, 0.15)' }]}&gt;
               &lt;Camera size={24} color={colors.primary} /&gt;
             &lt;/View&gt;
             &lt;Text style={styles.actionText}&gt;Body Scan&lt;/Text&gt;
           &lt;/Pressable&gt;
-          
-          &lt;Pressable 
+&nbsp;
+          &lt;Pressable
             style={styles.quickAction}
             onPress={<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >handleQuickActionPress('/voice-control')}</span>
+            testID="home_screen.voice_control_button"
           &gt;
             &lt;View style={[styles.actionIcon, { backgroundColor: 'rgba(76, 175, 80, 0.15)' }]}&gt;
               &lt;Mic size={24} color={colors.secondary} /&gt;
             &lt;/View&gt;
             &lt;Text style={styles.actionText}&gt;Voice Control&lt;/Text&gt;
           &lt;/Pressable&gt;
-          
-          &lt;Pressable 
+&nbsp;
+          &lt;Pressable
             style={styles.quickAction}
             onPress={<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >handleQuickActionPress('/quick-workout')}</span>
+            testID="home_screen.quick_workout_button"
           &gt;
             &lt;View style={[styles.actionIcon, { backgroundColor: 'rgba(255, 193, 7, 0.15)' }]}&gt;
               &lt;Zap size={24} color="#FFC107" /&gt;
@@ -627,13 +638,13 @@
             &lt;Text style={styles.actionText}&gt;Quick Workout&lt;/Text&gt;
           &lt;/Pressable&gt;
         &lt;/View&gt;
-        
+&nbsp;
         {/* Health News */}
         &lt;HealthNewsCard onPress={handleHealthNewsPress} /&gt;
-        
+&nbsp;
         {/* Mood Selector */}
         &lt;MoodSelector /&gt;
-        
+&nbsp;
         {/* Mood-based Workouts */}
         {profile.currentMood &amp;&amp; (
           &lt;View style={styles.section}&gt;
@@ -645,16 +656,17 @@
             ) : (
               &lt;Text style={styles.emptyText}&gt;No workouts found for your current mood&lt;/Text&gt;
             )}
-            
-            &lt;Button 
-              title="See All Workouts" 
+&nbsp;
+            &lt;Button
+              title="See All Workouts"
               onPress={<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >router.push('/(tabs)/workouts')}</span>
               variant="outline"
               style={styles.seeAllButton}
+              testID="home_screen.see_all_workouts_button"
             /&gt;
           &lt;/View&gt;
         )}
-        
+&nbsp;
         {/* Recent Workouts */}
         {recentWorkoutsList.length &gt; 0 &amp;&amp; (
           &lt;View style={styles.section}&gt;
@@ -664,15 +676,15 @@
             ))}
           &lt;/View&gt;
         )}
-        
+&nbsp;
         {/* Recommended Workouts */}
         &lt;View style={styles.section}&gt;
           &lt;Text style={styles.sectionTitle}&gt;
-            {profile.bodyType 
-              ? `Recommended for ${profile.bodyType} body type` 
+            {profile.bodyType
+              ? `Recommended for ${profile.bodyType} body type`
               : 'Recommended Workouts'}
           &lt;/Text&gt;
-          
+&nbsp;
           {isLoading ? (
             &lt;Text style={styles.loadingText}&gt;Loading recommendations...&lt;/Text&gt;
           ) : (
@@ -757,7 +769,7 @@ const styles = <span class="cstat-no" title="statement not covered" >StyleSheet.
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-26T21:31:29.029Z
+                at 2025-11-26T21:46:52.626Z
             </div>
         <script src="../../prettify.js"></script>
         <script>

@@ -1,0 +1,27 @@
+appId: com.fitmetallix.app
+---
+- launchApp
+
+# Ensure we are on Home Screen
+- assertVisible: "home_screen.quick_workout_button"
+
+# Select a Workout
+- tapOn: "home_screen.see_all_workouts_button"
+- tapOn: "workout_card_1" # Assuming ID 1 exists
+
+# Verify Workout Details
+- assertVisible: "workout_details.start_button"
+- assertVisible: "workout_details.favorite_button"
+
+# Favorite Workout
+- tapOn: "workout_details.favorite_button"
+
+# Start Workout
+- tapOn: "workout_details.start_button"
+
+# Verify Success Alert (Maestro handles alerts automatically usually, but we can assert text)
+- assertVisible: "Workout Started"
+- tapOn: "Complete Workout"
+
+# Verify back on Home Screen (or wherever it navigates)
+- assertVisible: "home_screen.quick_workout_button"

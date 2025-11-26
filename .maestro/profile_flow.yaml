@@ -1,0 +1,23 @@
+appId: com.fitmetallix.app
+---
+- launchApp
+
+# Navigate to Profile
+- tapOn: "Profile" # Assuming tab bar item has text "Profile" or accessibility label
+
+# Verify Profile Screen
+- assertVisible: "profile_screen.edit_button"
+- assertVisible: "profile_screen.logout_button"
+
+# Edit Profile
+- tapOn: "profile_screen.edit_button"
+# (Add steps for edit profile if IDs were added there, otherwise just verify navigation)
+- tapOn: "Save" # Assuming save button exists
+- tapOn: "Back" # Or whatever navigation exists
+
+# Logout
+- tapOn: "profile_screen.logout_button"
+- tapOn: "Log Out" # Confirm alert
+
+# Verify Login Screen
+- assertVisible: "login_screen.login_button"

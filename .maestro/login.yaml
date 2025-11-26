@@ -1,0 +1,21 @@
+appId: com.fitmetallix.app
+---
+- launchApp:
+    clearState: true
+
+# Verify Login Screen
+- assertVisible: "login_screen.email_input"
+- assertVisible: "login_screen.password_input"
+- assertVisible: "login_screen.login_button"
+
+# Login Flow
+- tapOn: "login_screen.email_input"
+- inputText: "test@example.com"
+- tapOn: "login_screen.password_input"
+- inputText: "password123"
+- hideKeyboard
+- tapOn: "login_screen.login_button"
+
+# Verify Home Screen
+- assertVisible: "home_screen.quick_workout_button"
+- assertVisible: "home_screen.see_all_workouts_button"

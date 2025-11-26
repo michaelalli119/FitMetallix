@@ -542,7 +542,15 @@
 <a name='L477'></a><a href='#L477'>477</a>
 <a name='L478'></a><a href='#L478'>478</a>
 <a name='L479'></a><a href='#L479'>479</a>
-<a name='L480'></a><a href='#L480'>480</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L480'></a><a href='#L480'>480</a>
+<a name='L481'></a><a href='#L481'>481</a>
+<a name='L482'></a><a href='#L482'>482</a>
+<a name='L483'></a><a href='#L483'>483</a>
+<a name='L484'></a><a href='#L484'>484</a>
+<a name='L485'></a><a href='#L485'>485</a>
+<a name='L486'></a><a href='#L486'>486</a>
+<a name='L487'></a><a href='#L487'>487</a>
+<a name='L488'></a><a href='#L488'>488</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -836,7 +844,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -1037,20 +1053,20 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
 <span class="cstat-no" title="statement not covered" >export default function <span class="fstat-no" title="function not covered" >W</span>orkoutDetailsScreen(</span>) {
   const { id } = <span class="cstat-no" title="statement not covered" >useLocalSearchParams&lt;{ id: string }&gt;();</span>
   const router = <span class="cstat-no" title="statement not covered" >useRouter();</span>
-  
+&nbsp;
   const { addToSaved, toggleFavorite, favoriteWorkouts, getSavedWorkout, addToRecent } = <span class="cstat-no" title="statement not covered" >useWorkoutStore();</span>
   const { updateProgress, progress, profile } = <span class="cstat-no" title="statement not covered" >useUserStore();</span>
-  
+&nbsp;
   const [workout, setWorkout] = <span class="cstat-no" title="statement not covered" >useState&lt;Workout | null&gt;(null);</span>
   const [isFavorite, setIsFavorite] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
   const [isSaved, setIsSaved] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
   const [isLoading, setIsLoading] = <span class="cstat-no" title="statement not covered" >useState(true);</span>
   const [aiTips, setAiTips] = <span class="cstat-no" title="statement not covered" >useState&lt;string | null&gt;(null);</span>
   const [loadingTips, setLoadingTips] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
-  
+&nbsp;
   // Use tRPC to fetch workout details
   const workoutQuery = <span class="cstat-no" title="statement not covered" >trpc.workouts.getWorkoutById.useQuery({ id: id as string });</span>
-  
+&nbsp;
   // Use tRPC to update progress
   const updateProgressMutation = <span class="cstat-no" title="statement not covered" >trpc.user.updateProgress.useMutation();</span>
 &nbsp;
@@ -1077,11 +1093,11 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
 <span class="cstat-no" title="statement not covered" >      setIsLoading(false);</span>
     }
   }, [workoutQuery.status, id]);
-  
+&nbsp;
   // Generate AI tips based on user profile and workout
   const generateAITips = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(workout: Workout) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (!workout) <span class="cstat-no" title="statement not covered" >return;</span></span>
-    
+&nbsp;
 <span class="cstat-no" title="statement not covered" >    setLoadingTips(true);</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
       const response = <span class="cstat-no" title="statement not covered" >await fetch('https://toolkit.rork.com/text/llm/', {</span>
@@ -1104,7 +1120,7 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
           ]
         })
       });
-      
+&nbsp;
       const data = <span class="cstat-no" title="statement not covered" >await response.json();</span>
 <span class="cstat-no" title="statement not covered" >      setAiTips(data.completion);</span>
     } catch (error) {
@@ -1114,62 +1130,62 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
 <span class="cstat-no" title="statement not covered" >      setLoadingTips(false);</span>
     }
   };
-  
+&nbsp;
 <span class="cstat-no" title="statement not covered" >  useEffect(<span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (!workout &amp;&amp; !isLoading) {</span>
 <span class="cstat-no" title="statement not covered" >      return;</span>
     }
-    
+&nbsp;
     // Check if workout is favorited
 <span class="cstat-no" title="statement not covered" >    if (workout) {</span>
 <span class="cstat-no" title="statement not covered" >      setIsFavorite(favoriteWorkouts.includes(workout.id));</span>
-      
+&nbsp;
       // Check if workout is saved
       const savedWorkout = <span class="cstat-no" title="statement not covered" >getSavedWorkout(workout.id);</span>
 <span class="cstat-no" title="statement not covered" >      setIsSaved(!!savedWorkout);</span>
-      
+&nbsp;
       // If it's saved, use the saved version
 <span class="cstat-no" title="statement not covered" >      if (savedWorkout) {</span>
 <span class="cstat-no" title="statement not covered" >        setWorkout(savedWorkout);</span>
       }
-      
+&nbsp;
       // Add to recent workouts
 <span class="cstat-no" title="statement not covered" >      if (id) {</span>
 <span class="cstat-no" title="statement not covered" >        addToRecent(id);</span>
       }
     }
   }, [workout, favoriteWorkouts, getSavedWorkout, id, addToRecent, isLoading]);
-  
+&nbsp;
   const handleFavorite = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (!workout) <span class="cstat-no" title="statement not covered" >return;</span></span>
 <span class="cstat-no" title="statement not covered" >    toggleFavorite(workout.id);</span>
 <span class="cstat-no" title="statement not covered" >    setIsFavorite(!isFavorite);</span>
   };
-  
+&nbsp;
   const handleSave = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (!workout) <span class="cstat-no" title="statement not covered" >return;</span></span>
 <span class="cstat-no" title="statement not covered" >    addToSaved(workout);</span>
 <span class="cstat-no" title="statement not covered" >    setIsSaved(true);</span>
 <span class="cstat-no" title="statement not covered" >    Alert.alert('Success', 'Workout saved to your collection');</span>
   };
-  
+&nbsp;
   const handleShare = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    Alert.alert('Share', 'Sharing functionality would be implemented here');</span>
   };
-  
+&nbsp;
   const startWorkout = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (!workout) <span class="cstat-no" title="statement not covered" >return;</span></span>
-    
+&nbsp;
     // Update progress stats
     const newCompletedWorkouts = <span class="cstat-no" title="statement not covered" >progress.completedWorkouts + 1;</span>
     const newTotalMinutes = <span class="cstat-no" title="statement not covered" >progress.totalWorkoutMinutes + workout.duration;</span>
-    
+&nbsp;
     // Calculate streak - in a real app, this would be more sophisticated
     const today = <span class="cstat-no" title="statement not covered" >new Date().toISOString().split('T')[0];</span>
-    const lastWorkoutDate = <span class="cstat-no" title="statement not covered" >progress.lastWorkoutDate </span>
-      ? new Date(progress.lastWorkoutDate).toISOString().split('T')[0] 
+    const lastWorkoutDate = <span class="cstat-no" title="statement not covered" >progress.lastWorkoutDate</span>
+      ? new Date(progress.lastWorkoutDate).toISOString().split('T')[0]
       : null;
-    
+&nbsp;
     // If last workout was yesterday or this is first workout, increment streak
     // Otherwise, reset streak to 1
     let newStreak = <span class="cstat-no" title="statement not covered" >1;</span>
@@ -1177,32 +1193,32 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
       const yesterday = <span class="cstat-no" title="statement not covered" >new Date();</span>
 <span class="cstat-no" title="statement not covered" >      yesterday.setDate(yesterday.getDate() - 1);</span>
       const yesterdayString = <span class="cstat-no" title="statement not covered" >yesterday.toISOString().split('T')[0];</span>
-      
+&nbsp;
 <span class="cstat-no" title="statement not covered" >      if (lastWorkoutDate === yesterdayString || lastWorkoutDate === today) {</span>
 <span class="cstat-no" title="statement not covered" >        newStreak = progress.streakDays + 1;</span>
       }
     }
-    
+&nbsp;
     const updatedProgress = <span class="cstat-no" title="statement not covered" >{</span>
       completedWorkouts: newCompletedWorkouts,
       totalWorkoutMinutes: newTotalMinutes,
       lastWorkoutDate: new Date().toISOString(),
       streakDays: newStreak,
     };
-    
+&nbsp;
     // Update local state
 <span class="cstat-no" title="statement not covered" >    updateProgress(updatedProgress);</span>
-    
+&nbsp;
     // Update via API
 <span class="cstat-no" title="statement not covered" >    updateProgressMutation.mutate(updatedProgress);</span>
-    
+&nbsp;
     // In a real app, this would navigate to a workout session screen
 <span class="cstat-no" title="statement not covered" >    Alert.alert(</span>
       'Workout Started',
       `You've started the ${workout.title} workout! In a complete app, this would navigate to an interactive workout session screen with timers and exercise guidance.`,
       [
-        { 
-          text: 'Complete Workout', 
+        {
+          text: 'Complete Workout',
           onPress: <span class="fstat-no" title="function not covered" >() =</span>&gt; {
             // Navigate back to home screen after completing the workout
 <span class="cstat-no" title="statement not covered" >            router.push('/(tabs)');</span>
@@ -1211,7 +1227,7 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
       ]
     );
   };
-  
+&nbsp;
 <span class="cstat-no" title="statement not covered" >  if (isLoading) {</span>
 <span class="cstat-no" title="statement not covered" >    return (</span>
       &lt;View style={[styles.container, styles.loadingContainer]}&gt;
@@ -1220,7 +1236,7 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
       &lt;/View&gt;
     );
   }
-  
+&nbsp;
 <span class="cstat-no" title="statement not covered" >  if (!workout) {</span>
 <span class="cstat-no" title="statement not covered" >    return (</span>
       &lt;View style={[styles.container, styles.loadingContainer]}&gt;
@@ -1232,39 +1248,41 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
     &lt;View style={styles.container}&gt;
-      &lt;Stack.Screen 
-        options={{ 
+      &lt;Stack.Screen
+        options={{
           headerShown: false,
-        }} 
+        }}
       /&gt;
-      
+&nbsp;
       &lt;ScrollView showsVerticalScrollIndicator={false}&gt;
         {/* Header Image */}
         &lt;View style={styles.imageContainer}&gt;
           &lt;Image source={{ uri: workout.imageUrl }} style={styles.image} /&gt;
           &lt;View style={styles.overlay} /&gt;
-          
+&nbsp;
           &lt;View style={styles.headerControls}&gt;
-            &lt;Pressable 
+            &lt;Pressable
               style={styles.backButton}
               onPress={<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >router.back()}</span>
+              testID="workout_details.back_button"
             &gt;
               &lt;ArrowLeft size={24} color={colors.white} /&gt;
             &lt;/Pressable&gt;
-            
+&nbsp;
             &lt;View style={styles.headerActions}&gt;
-              &lt;Pressable 
+              &lt;Pressable
                 style={styles.actionButton}
                 onPress={handleFavorite}
+                testID="workout_details.favorite_button"
               &gt;
-                &lt;Heart 
-                  size={24} 
-                  color={colors.white} 
-                  fill={isFavorite ? colors.error : 'transparent'} 
+                &lt;Heart
+                  size={24}
+                  color={colors.white}
+                  fill={isFavorite ? colors.error : 'transparent'}
                 /&gt;
               &lt;/Pressable&gt;
-              
-              &lt;Pressable 
+&nbsp;
+              &lt;Pressable
                 style={styles.actionButton}
                 onPress={handleShare}
               &gt;
@@ -1272,14 +1290,14 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
               &lt;/Pressable&gt;
             &lt;/View&gt;
           &lt;/View&gt;
-          
+&nbsp;
           &lt;View style={styles.headerContent}&gt;
             &lt;View style={styles.levelBadge}&gt;
               &lt;Text style={styles.levelText}&gt;{workout.level}&lt;/Text&gt;
             &lt;/View&gt;
-            
+&nbsp;
             &lt;Text style={styles.title}&gt;{workout.title}&lt;/Text&gt;
-            
+&nbsp;
             &lt;View style={styles.stats}&gt;
               &lt;View style={styles.stat}&gt;
                 &lt;Clock size={16} color={colors.white} /&gt;
@@ -1292,7 +1310,7 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
             &lt;/View&gt;
           &lt;/View&gt;
         &lt;/View&gt;
-        
+&nbsp;
         {/* Content */}
         &lt;View style={styles.content}&gt;
           {/* AI Tips */}
@@ -1309,15 +1327,20 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
               )}
             &lt;/View&gt;
           )}
-          
+&nbsp;
           &lt;Text style={styles.sectionTitle}&gt;Description&lt;/Text&gt;
           &lt;Text style={styles.description}&gt;{workout.description}&lt;/Text&gt;
-          
+&nbsp;
           &lt;Text style={styles.sectionTitle}&gt;Exercises&lt;/Text&gt;
           {workout.exercises.map(<span class="fstat-no" title="function not covered" >(e</span>xercise, index) =&gt; (
-<span class="cstat-no" title="statement not covered" >            &lt;ExerciseItem key={exercise.id} exercise={exercise} index={index} /&gt;</span>
+<span class="cstat-no" title="statement not covered" >            &lt;ExerciseItem</span>
+              key={exercise.id}
+              exercise={exercise}
+              index={index}
+              testID={`workout_details.exercise_${index}`}
+            /&gt;
           ))}
-          
+&nbsp;
           {!isSaved &amp;&amp; (
             &lt;Button
               title="Save Workout"
@@ -1328,7 +1351,7 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
           )}
         &lt;/View&gt;
       &lt;/ScrollView&gt;
-      
+&nbsp;
       {/* Start Button */}
       &lt;View style={styles.startButtonContainer}&gt;
         &lt;Button
@@ -1337,6 +1360,7 @@ import AIWorkoutTips from '@/components/AIWorkoutTips';
           style={styles.startButton}
           textStyle={styles.startButtonText}
           fullWidth
+          testID="workout_details.start_button"
         /&gt;
       &lt;/View&gt;
     &lt;/View&gt;
@@ -1507,7 +1531,7 @@ const styles = <span class="cstat-no" title="statement not covered" >StyleSheet.
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-26T21:31:29.029Z
+                at 2025-11-26T21:46:52.626Z
             </div>
         <script src="../prettify.js"></script>
         <script>

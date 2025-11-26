@@ -11,35 +11,36 @@ export default function WorkoutsScreen() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedType, setSelectedType] = useState<WorkoutType | 'all'>('all');
   const [selectedLevel, setSelectedLevel] = useState<WorkoutLevel | 'all'>('all');
-  const [filteredWorkouts, setFilteredWorkouts] = useState([]);
+  const [filteredWorkouts, setFilteredWorkouts] = useState<any[]>([]);
   const [isLoading, setIsLoading] = useState(true);
-  
+
   // Use tRPC to fetch workouts
   const workoutsQuery = trpc.workouts.getWorkouts.useQuery({
     type: selectedType === 'all' ? undefined : selectedType,
     level: selectedLevel === 'all' ? undefined : selectedLevel,
-  }, {
-    onSuccess: (data) => {
+  } as any);
+
+  useEffect(() => {
+    if (workoutsQuery.data) {
       setIsLoading(false);
       // Apply search filter client-side
       if (searchQuery) {
-        const filtered = data.filter(workout => 
+        const filtered = (workoutsQuery.data as any[]).filter((workout: any) =>
           workout.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
           workout.description.toLowerCase().includes(searchQuery.toLowerCase())
         );
         setFilteredWorkouts(filtered);
       } else {
-        setFilteredWorkouts(data);
+        setFilteredWorkouts(workoutsQuery.data as any[]);
       }
-    },
-    onError: (error) => {
-      console.error("Error fetching workouts:", error);
+    } else if (workoutsQuery.error) {
+      console.error("Error fetching workouts:", workoutsQuery.error);
       setIsLoading(false);
       // Fallback to local filtering if API fails
       filterWorkoutsLocally();
     }
-  });
-  
+  }, [workoutsQuery.data, workoutsQuery.error, searchQuery]);
+
   const workoutTypes: { id: WorkoutType | 'all'; label: string }[] = [
     { id: 'all', label: 'All' },
     { id: 'strength', label: 'Strength' },
@@ -47,56 +48,56 @@ export default function WorkoutsScreen() {
     { id: 'flexibility', label: 'Flexibility' },
     { id: 'recovery', label: 'Recovery' },
   ];
-  
+
   const workoutLevels: { id: WorkoutLevel | 'all'; label: string }[] = [
     { id: 'all', label: 'All Levels' },
     { id: 'beginner', label: 'Beginner' },
     { id: 'intermediate', label: 'Intermediate' },
     { id: 'advanced', label: 'Advanced' },
   ];
-  
+
   // Filter workouts locally as a fallback
   const filterWorkoutsLocally = () => {
     let filtered = [...workouts];
-    
+
     // Filter by search query
     if (searchQuery) {
-      filtered = filtered.filter(workout => 
+      filtered = filtered.filter(workout =>
         workout.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         workout.description.toLowerCase().includes(searchQuery.toLowerCase())
       );
     }
-    
+
     // Filter by type
     if (selectedType !== 'all') {
       filtered = filtered.filter(workout => workout.type === selectedType);
     }
-    
+
     // Filter by level
     if (selectedLevel !== 'all') {
       filtered = filtered.filter(workout => workout.level === selectedLevel);
     }
-    
-    setFilteredWorkouts(filtered);
+
+    setFilteredWorkouts(filtered as any);
   };
-  
+
   // Apply search filter when query changes
   useEffect(() => {
     if (workoutsQuery.data) {
       if (searchQuery) {
-        const filtered = workoutsQuery.data.filter(workout => 
+        const filtered = workoutsQuery.data.filter(workout =>
           workout.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
           workout.description.toLowerCase().includes(searchQuery.toLowerCase())
         );
-        setFilteredWorkouts(filtered);
+        setFilteredWorkouts(filtered as any);
       } else {
-        setFilteredWorkouts(workoutsQuery.data);
+        setFilteredWorkouts(workoutsQuery.data as any);
       }
     } else {
       filterWorkoutsLocally();
     }
   }, [searchQuery]);
-  
+
   // Refetch when filters change
   useEffect(() => {
     if (workoutsQuery.refetch) {
@@ -108,7 +109,7 @@ export default function WorkoutsScreen() {
     <ScrollView style={styles.container} showsVerticalScrollIndicator={false}>
       <View style={styles.content}>
         <Header showGreeting={false} title="Workouts" />
-        
+
         {/* Search Bar */}
         <View style={styles.searchContainer}>
           <Search size={20} color={colors.textSecondary} />
@@ -121,10 +122,10 @@ export default function WorkoutsScreen() {
             cursorColor={colors.primary}
           />
         </View>
-        
+
         {/* Type Filter */}
-        <ScrollView 
-          horizontal 
+        <ScrollView
+          horizontal
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.filterContainer}
         >
@@ -141,10 +142,10 @@ export default function WorkoutsScreen() {
             </Text>
           ))}
         </ScrollView>
-        
+
         {/* Level Filter */}
-        <ScrollView 
-          horizontal 
+        <ScrollView
+          horizontal
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={styles.filterContainer}
         >
@@ -161,7 +162,7 @@ export default function WorkoutsScreen() {
             </Text>
           ))}
         </ScrollView>
-        
+
         {/* Workouts List */}
         <View style={styles.workoutsContainer}>
           {isLoading ? (
@@ -170,7 +171,7 @@ export default function WorkoutsScreen() {
               <Text style={styles.loadingText}>Loading workouts...</Text>
             </View>
           ) : filteredWorkouts.length > 0 ? (
-            filteredWorkouts.map(workout => (
+            filteredWorkouts.map((workout: any) => (
               <WorkoutCard key={workout.id} workout={workout} />
             ))
           ) : (

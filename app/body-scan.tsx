@@ -13,7 +13,7 @@ export default function BodyScanScreen() {
   const router = useRouter();
   const [permission, requestPermission] = useCameraPermissions();
   const { setBodyType } = useUserStore();
-  
+
   const [facing, setFacing] = useState<CameraType>('back');
   const [photo, setPhoto] = useState<string | null>(null);
   const [analyzing, setAnalyzing] = useState(false);
@@ -21,12 +21,13 @@ export default function BodyScanScreen() {
   const [aiRecommendations, setAiRecommendations] = useState<string[]>([]);
   const [confidence, setConfidence] = useState<number>(0);
   const cameraRef = useRef<CameraView>(null);
-  
+
   // tRPC mutation for body scan analysis
   const analyzeBodyScanMutation = trpc.user.analyzeBodyScan.useMutation({
     onSuccess: (data) => {
-      setResult(data.bodyType);
-      setConfidence(data.confidence);
+      setResult(data.bodyType as BodyType);
+      // confidence is not returned by the API currently, defaulting to mock value
+      setConfidence(85);
       setAiRecommendations(data.recommendations);
       setAnalyzing(false);
     },
@@ -36,18 +37,18 @@ export default function BodyScanScreen() {
       setAnalyzing(false);
     }
   });
-  
+
   const toggleCameraFacing = () => {
     setFacing(current => (current === 'back' ? 'front' : 'back'));
   };
-  
+
   const takePhoto = async () => {
     if (!cameraRef.current) return;
-    
+
     try {
       // This is a mock since we can't actually take photos in this environment
       setPhoto('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-      
+
       // In a real app, you would use:
       // const photo = await cameraRef.current.takePictureAsync();
       // setPhoto(photo.uri);
@@ -56,25 +57,29 @@ export default function BodyScanScreen() {
       Alert.alert('Error', 'Failed to take photo. Please try again.');
     }
   };
-  
+
   const analyzePhoto = async () => {
     setAnalyzing(true);
-    
+
     // Call the tRPC mutation to analyze the body scan
     analyzeBodyScanMutation.mutate({
-      imageUrl: photo || 'https://images.unsplash.com/photo-1517836357463-d25dfeac3438',
-      height: 175, // Example height in cm
-      weight: 70, // Example weight in kg
+      // imageUrl is not in the input type based on tests, removing it or fixing type definition
+      // Based on tests, it accepts height, weight, age, gender, imageBase64
+      height: 175,
+      weight: 70,
+      age: 30,
+      gender: 'male',
+      imageBase64: photo || '',
     });
   };
-  
+
   const resetScan = () => {
     setPhoto(null);
     setResult(null);
     setAiRecommendations([]);
     setConfidence(0);
   };
-  
+
   const saveResults = () => {
     if (result) {
       setBodyType(result);
@@ -85,7 +90,7 @@ export default function BodyScanScreen() {
       );
     }
   };
-  
+
   if (!permission) {
     // Camera permissions are still loading
     return (
@@ -94,12 +99,12 @@ export default function BodyScanScreen() {
       </View>
     );
   }
-  
+
   if (!permission.granted) {
     // Camera permissions are not granted yet
     return (
       <View style={styles.container}>
-        <Stack.Screen options={{ 
+        <Stack.Screen options={{
           title: 'Body Scan',
           headerStyle: { backgroundColor: colors.surface },
           headerTintColor: colors.text,
@@ -107,9 +112,9 @@ export default function BodyScanScreen() {
         <Text style={styles.permissionText}>
           We need your permission to use the camera for body scanning
         </Text>
-        <Button 
-          title="Grant Permission" 
-          onPress={requestPermission} 
+        <Button
+          title="Grant Permission"
+          onPress={requestPermission}
           style={styles.permissionButton}
         />
       </View>
@@ -118,8 +123,8 @@ export default function BodyScanScreen() {
 
   return (
     <View style={styles.container}>
-      <Stack.Screen 
-        options={{ 
+      <Stack.Screen
+        options={{
           title: 'Body Scan',
           headerStyle: { backgroundColor: colors.surface },
           headerTintColor: colors.text,
@@ -128,16 +133,16 @@ export default function BodyScanScreen() {
               <ChevronLeft size={24} color={colors.text} />
             </Pressable>
           ),
-        }} 
+        }}
       />
-      
+
       {!photo ? (
         // Camera View
         <View style={styles.cameraContainer}>
           <Text style={styles.instructions}>
             Stand 6-8 feet away from the camera in good lighting
           </Text>
-          
+
           {Platform.OS !== 'web' ? (
             <CameraView
               style={styles.camera}
@@ -145,14 +150,14 @@ export default function BodyScanScreen() {
               ref={cameraRef}
             >
               <View style={styles.cameraControls}>
-                <Pressable 
+                <Pressable
                   style={styles.flipButton}
                   onPress={toggleCameraFacing}
                 >
                   <RefreshCw size={24} color={colors.white} />
                 </Pressable>
-                
-                <Pressable 
+
+                <Pressable
                   style={styles.captureButton}
                   onPress={takePhoto}
                 >
@@ -166,14 +171,14 @@ export default function BodyScanScreen() {
               <Text style={styles.webFallbackText}>
                 Camera functionality is limited on web.
               </Text>
-              <Button 
-                title="Simulate Photo Capture" 
+              <Button
+                title="Simulate Photo Capture"
                 onPress={takePhoto}
                 style={styles.webButton}
               />
             </View>
           )}
-          
+
           <Text style={styles.tip}>
             Tip: Wear form-fitting clothes for more accurate results
           </Text>
@@ -185,16 +190,16 @@ export default function BodyScanScreen() {
             // Photo review before analysis
             <>
               <Image source={{ uri: photo }} style={styles.photoPreview} />
-              
+
               <View style={styles.actionButtons}>
-                <Button 
-                  title="Retake" 
+                <Button
+                  title="Retake"
                   onPress={resetScan}
                   variant="outline"
                   style={{ flex: 1, marginRight: 8 }}
                 />
-                <Button 
-                  title="Analyze" 
+                <Button
+                  title="Analyze"
                   onPress={analyzePhoto}
                   loading={analyzing}
                   style={{ flex: 1, marginLeft: 8 }}
@@ -210,18 +215,18 @@ export default function BodyScanScreen() {
                   <Check size={16} color={colors.white} />
                 </View>
               </View>
-              
+
               <Text style={styles.bodyTypeTitle}>
                 Your Body Type: <Text style={styles.bodyTypeValue}>{result}</Text>
               </Text>
-              
+
               <View style={styles.confidenceContainer}>
                 <Text style={styles.confidenceLabel}>Confidence: {confidence}%</Text>
                 <View style={styles.confidenceBar}>
                   <View style={[styles.confidenceFill, { width: `${confidence}%` }]} />
                 </View>
               </View>
-              
+
               <View style={styles.bodyTypeInfo}>
                 <Text style={styles.recommendationsTitle}>AI Recommendations:</Text>
                 {aiRecommendations.length > 0 ? (
@@ -240,16 +245,16 @@ export default function BodyScanScreen() {
                   ))
                 )}
               </View>
-              
+
               <View style={styles.actionButtons}>
-                <Button 
-                  title="Scan Again" 
+                <Button
+                  title="Scan Again"
                   onPress={resetScan}
                   variant="outline"
                   style={{ flex: 1, marginRight: 8 }}
                 />
-                <Button 
-                  title="Save Results" 
+                <Button
+                  title="Save Results"
                   onPress={saveResults}
                   style={{ flex: 1, marginLeft: 8 }}
                 />

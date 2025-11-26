@@ -522,7 +522,12 @@
 <a name='L457'></a><a href='#L457'>457</a>
 <a name='L458'></a><a href='#L458'>458</a>
 <a name='L459'></a><a href='#L459'>459</a>
-<a name='L460'></a><a href='#L460'>460</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L460'></a><a href='#L460'>460</a>
+<a name='L461'></a><a href='#L461'>461</a>
+<a name='L462'></a><a href='#L462'>462</a>
+<a name='L463'></a><a href='#L463'>463</a>
+<a name='L464'></a><a href='#L464'>464</a>
+<a name='L465'></a><a href='#L465'>465</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -698,6 +703,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -714,6 +720,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -789,6 +796,7 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -819,6 +827,8 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -994,7 +1004,7 @@
 <span class="cstat-no" title="statement not covered" >export default function <span class="fstat-no" title="function not covered" >O</span>nboardingScreen(</span>) {
   const router = <span class="cstat-no" title="statement not covered" >useRouter();</span>
   const { updateProfile, setOnboarded } = <span class="cstat-no" title="statement not covered" >useUserStore();</span>
-  
+&nbsp;
   const [step, setStep] = <span class="cstat-no" title="statement not covered" >useState(1);</span>
   const [name, setName] = <span class="cstat-no" title="statement not covered" >useState('');</span>
   const [age, setAge] = <span class="cstat-no" title="statement not covered" >useState('');</span>
@@ -1004,7 +1014,7 @@
   const [fitnessGoals, setFitnessGoals] = <span class="cstat-no" title="statement not covered" >useState&lt;string[]&gt;([]);</span>
   const [selectedBodyType, setSelectedBodyType] = <span class="cstat-no" title="statement not covered" >useState&lt;string | null&gt;(null);</span>
   const [isSubmitting, setIsSubmitting] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
-  
+&nbsp;
   // tRPC mutation for updating profile
   const updateProfileMutation = <span class="cstat-no" title="statement not covered" >trpc.user.updateProfile.useMutation({</span>
     onSuccess: <span class="fstat-no" title="function not covered" >(d</span>ata) =&gt; {
@@ -1020,13 +1030,13 @@
 <span class="cstat-no" title="statement not covered" >      router.replace('/');</span>
     }
   });
-  
+&nbsp;
   const fitnessLevels: { id: WorkoutLevel; label: string }[] = <span class="cstat-no" title="statement not covered" >[</span>
     { id: 'beginner', label: 'Beginner' },
     { id: 'intermediate', label: 'Intermediate' },
     { id: 'advanced', label: 'Advanced' },
   ];
-  
+&nbsp;
   const goalOptions = <span class="cstat-no" title="statement not covered" >[</span>
     'Lose Weight',
     'Build Muscle',
@@ -1036,7 +1046,7 @@
     'Better Sleep',
     'Overall Health',
   ];
-  
+&nbsp;
   const toggleGoal = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(g</span>oal: string) =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (fitnessGoals.includes(goal)) {</span>
 <span class="cstat-no" title="statement not covered" >      setFitnessGoals(fitnessGoals.filter(<span class="fstat-no" title="function not covered" >g </span>=&gt; <span class="cstat-no" title="statement not covered" >g !== goal)</span>);</span>
@@ -1044,14 +1054,14 @@
 <span class="cstat-no" title="statement not covered" >      setFitnessGoals([...fitnessGoals, goal]);</span>
     }
   };
-  
+&nbsp;
   const handleNext = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (step &lt; 4) {</span>
 <span class="cstat-no" title="statement not covered" >      setStep(step + 1);</span>
     } else {
       // Save all user data
 <span class="cstat-no" title="statement not covered" >      setIsSubmitting(true);</span>
-      
+&nbsp;
       const profileData = <span class="cstat-no" title="statement not covered" >{</span>
         name,
         age: age ? parseInt(age) : null,
@@ -1061,21 +1071,21 @@
         fitnessGoals,
         bodyType: selectedBodyType as any,
       };
-      
+&nbsp;
       // Update local state
 <span class="cstat-no" title="statement not covered" >      updateProfile(profileData);</span>
-      
+&nbsp;
       // Update via API
 <span class="cstat-no" title="statement not covered" >      updateProfileMutation.mutate(profileData);</span>
     }
   };
-  
+&nbsp;
   const handleBack = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (step &gt; 1) {</span>
 <span class="cstat-no" title="statement not covered" >      setStep(step - 1);</span>
     }
   };
-  
+&nbsp;
   const isNextDisabled = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    switch (step) {</span>
       case 1:
@@ -1090,7 +1100,7 @@
 <span class="cstat-no" title="statement not covered" >        return false;</span>
     }
   };
-  
+&nbsp;
   const renderStep = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    switch (step) {</span>
       case 1:
@@ -1100,7 +1110,7 @@
             &lt;Text style={styles.stepDescription}&gt;
               We'll use this information to personalize your experience
             &lt;/Text&gt;
-            
+&nbsp;
             &lt;View style={styles.inputContainer}&gt;
               &lt;Text style={styles.inputLabel}&gt;Name&lt;/Text&gt;
               &lt;TextInput
@@ -1110,9 +1120,10 @@
                 placeholder="Your name"
                 placeholderTextColor={colors.textSecondary}
                 cursorColor={colors.primary}
+                testID="onboarding_screen.name_input"
               /&gt;
             &lt;/View&gt;
-            
+&nbsp;
             &lt;View style={styles.inputContainer}&gt;
               &lt;Text style={styles.inputLabel}&gt;Age (optional)&lt;/Text&gt;
               &lt;TextInput
@@ -1125,7 +1136,7 @@
                 cursorColor={colors.primary}
               /&gt;
             &lt;/View&gt;
-            
+&nbsp;
             &lt;View style={styles.rowInputs}&gt;
               &lt;View style={[styles.inputContainer, { flex: 1, marginRight: 8 }]}&gt;
                 &lt;Text style={styles.inputLabel}&gt;Weight (kg)&lt;/Text&gt;
@@ -1139,7 +1150,7 @@
                   cursorColor={colors.primary}
                 /&gt;
               &lt;/View&gt;
-              
+&nbsp;
               &lt;View style={[styles.inputContainer, { flex: 1, marginLeft: 8 }]}&gt;
                 &lt;Text style={styles.inputLabel}&gt;Height (cm)&lt;/Text&gt;
                 &lt;TextInput
@@ -1155,7 +1166,7 @@
             &lt;/View&gt;
           &lt;/View&gt;
         );
-      
+&nbsp;
       case 2:
 <span class="cstat-no" title="statement not covered" >        return (</span>
           &lt;View style={styles.stepContainer}&gt;
@@ -1163,7 +1174,7 @@
             &lt;Text style={styles.stepDescription}&gt;
               Select all that apply to you
             &lt;/Text&gt;
-            
+&nbsp;
             &lt;View style={styles.goalsContainer}&gt;
               {goalOptions.map(<span class="fstat-no" title="function not covered" >goal </span>=&gt; (
 <span class="cstat-no" title="statement not covered" >                &lt;Pressable</span>
@@ -1173,6 +1184,7 @@
                     fitnessGoals.includes(goal) &amp;&amp; styles.selectedGoal
                   ]}
                   onPress={<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >toggleGoal(goal)}</span>
+                  testID={`onboarding_screen.goal_${goal.replace(/\s+/g, '_').toLowerCase()}`}
                 &gt;
                   &lt;Text
                     style={[
@@ -1187,7 +1199,7 @@
             &lt;/View&gt;
           &lt;/View&gt;
         );
-      
+&nbsp;
       case 3:
 <span class="cstat-no" title="statement not covered" >        return (</span>
           &lt;View style={styles.stepContainer}&gt;
@@ -1195,7 +1207,7 @@
             &lt;Text style={styles.stepDescription}&gt;
               This helps us recommend appropriate workouts
             &lt;/Text&gt;
-            
+&nbsp;
             &lt;View style={styles.levelsContainer}&gt;
               {fitnessLevels.map(<span class="fstat-no" title="function not covered" >level </span>=&gt; (
 <span class="cstat-no" title="statement not covered" >                &lt;Pressable</span>
@@ -1205,6 +1217,7 @@
                     fitnessLevel === level.id &amp;&amp; styles.selectedLevel
                   ]}
                   onPress={<span class="fstat-no" title="function not covered" >() =</span>&gt; <span class="cstat-no" title="statement not covered" >setFitnessLevel(level.id)}</span>
+                  testID={`onboarding_screen.level_${level.id}`}
                 &gt;
                   &lt;Text
                     style={[
@@ -1214,7 +1227,7 @@
                   &gt;
                     {level.label}
                   &lt;/Text&gt;
-                  
+&nbsp;
                   {level.id === 'beginner' &amp;&amp; (
                     &lt;Text style={[
                       styles.levelDescription,
@@ -1223,7 +1236,7 @@
                       New to fitness or returning after a long break
                     &lt;/Text&gt;
                   )}
-                  
+&nbsp;
                   {level.id === 'intermediate' &amp;&amp; (
                     &lt;Text style={[
                       styles.levelDescription,
@@ -1232,7 +1245,7 @@
                       Consistent with workouts for several months
                     &lt;/Text&gt;
                   )}
-                  
+&nbsp;
                   {level.id === 'advanced' &amp;&amp; (
                     &lt;Text style={[
                       styles.levelDescription,
@@ -1246,7 +1259,7 @@
             &lt;/View&gt;
           &lt;/View&gt;
         );
-      
+&nbsp;
       case 4:
 <span class="cstat-no" title="statement not covered" >        return (</span>
           &lt;View style={styles.stepContainer}&gt;
@@ -1254,7 +1267,7 @@
             &lt;Text style={styles.stepDescription}&gt;
               This helps us tailor workouts to your specific needs
             &lt;/Text&gt;
-            
+&nbsp;
             &lt;ScrollView showsVerticalScrollIndicator={false}&gt;
               {bodyTypes.map(<span class="fstat-no" title="function not covered" >bodyType </span>=&gt; (
 <span class="cstat-no" title="statement not covered" >                &lt;BodyTypeCard</span>
@@ -1267,7 +1280,7 @@
             &lt;/ScrollView&gt;
           &lt;/View&gt;
         );
-      
+&nbsp;
       default:
 <span class="cstat-no" title="statement not covered" >        return null;</span>
     }
@@ -1286,15 +1299,15 @@
           /&gt;
         ))}
       &lt;/View&gt;
-      
-      &lt;ScrollView 
+&nbsp;
+      &lt;ScrollView
         style={styles.content}
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       &gt;
         {renderStep()}
       &lt;/ScrollView&gt;
-      
+&nbsp;
       &lt;View style={styles.buttonsContainer}&gt;
         {step &gt; 1 &amp;&amp; (
           &lt;Button
@@ -1302,15 +1315,17 @@
             onPress={handleBack}
             variant="outline"
             style={{ flex: 1, marginRight: 8 }}
+            testID="onboarding_screen.back_button"
           /&gt;
         )}
-        
+&nbsp;
         &lt;Button
           title={step === 4 ? "Finish" : "Next"}
           onPress={handleNext}
           disabled={isNextDisabled()}
           loading={isSubmitting}
           style={{ flex: 1, marginLeft: step &gt; 1 ? 8 : 0 }}
+          testID="onboarding_screen.next_button"
         /&gt;
       &lt;/View&gt;
     &lt;/View&gt;
@@ -1447,7 +1462,7 @@ const styles = <span class="cstat-no" title="statement not covered" >StyleSheet.
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-26T21:31:29.029Z
+                at 2025-11-26T21:46:52.626Z
             </div>
         <script src="../prettify.js"></script>
         <script>

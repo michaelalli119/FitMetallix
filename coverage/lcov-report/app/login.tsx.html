@@ -417,7 +417,11 @@
 <a name='L352'></a><a href='#L352'>352</a>
 <a name='L353'></a><a href='#L353'>353</a>
 <a name='L354'></a><a href='#L354'>354</a>
-<a name='L355'></a><a href='#L355'>355</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L355'></a><a href='#L355'>355</a>
+<a name='L356'></a><a href='#L356'>356</a>
+<a name='L357'></a><a href='#L357'>357</a>
+<a name='L358'></a><a href='#L358'>358</a>
+<a name='L359'></a><a href='#L359'>359</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -603,12 +607,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -784,33 +792,33 @@
 <span class="cstat-no" title="statement not covered" >export default function <span class="fstat-no" title="function not covered" >L</span>oginScreen(</span>) {
   const router = <span class="cstat-no" title="statement not covered" >useRouter();</span>
   const { setOnboarded, updateProfile } = <span class="cstat-no" title="statement not covered" >useUserStore();</span>
-  
+&nbsp;
   const [email, setEmail] = <span class="cstat-no" title="statement not covered" >useState('');</span>
   const [password, setPassword] = <span class="cstat-no" title="statement not covered" >useState('');</span>
   const [showPassword, setShowPassword] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
   const [isLogin, setIsLogin] = <span class="cstat-no" title="statement not covered" >useState(true);</span>
   const [isLoading, setIsLoading] = <span class="cstat-no" title="statement not covered" >useState(false);</span>
-  
+&nbsp;
   const togglePasswordVisibility = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setShowPassword(!showPassword);</span>
   };
-  
+&nbsp;
   const toggleAuthMode = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    setIsLogin(!isLogin);</span>
   };
-  
+&nbsp;
   const handleAuth = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>() =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    if (!email || !password) {</span>
 <span class="cstat-no" title="statement not covered" >      Alert.alert('Error', 'Please fill in all fields');</span>
 <span class="cstat-no" title="statement not covered" >      return;</span>
     }
-    
+&nbsp;
 <span class="cstat-no" title="statement not covered" >    setIsLoading(true);</span>
-    
+&nbsp;
 <span class="cstat-no" title="statement not covered" >    try {</span>
       // Simulate authentication delay
 <span class="cstat-no" title="statement not covered" >      await new Promise(<span class="fstat-no" title="function not covered" >resolve </span>=&gt; <span class="cstat-no" title="statement not covered" >setTimeout(resolve, 1500))</span>;</span>
-      
+&nbsp;
 <span class="cstat-no" title="statement not covered" >      if (isLogin) {</span>
         // In a real app, this would validate credentials with a backend
 <span class="cstat-no" title="statement not covered" >        console.log('Logging in...');</span>
@@ -818,14 +826,14 @@
         // In a real app, this would create a new account
 <span class="cstat-no" title="statement not covered" >        console.log('Signing up...');</span>
       }
-      
+&nbsp;
       // Set default profile name from email
       const name = <span class="cstat-no" title="statement not covered" >email.split('@')[0];</span>
 <span class="cstat-no" title="statement not covered" >      updateProfile({ name });</span>
-      
+&nbsp;
       // Set as onboarded to skip onboarding
 <span class="cstat-no" title="statement not covered" >      setOnboarded(true);</span>
-      
+&nbsp;
       // Navigate to home or onboarding based on whether it's a new account
 <span class="cstat-no" title="statement not covered" >      router.replace(isLogin ? '/' : '/onboarding');</span>
     } catch (error) {
@@ -835,7 +843,7 @@
 <span class="cstat-no" title="statement not covered" >      setIsLoading(false);</span>
     }
   };
-  
+&nbsp;
   const handleSocialLogin = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async </span>(provider: 'apple' | 'google') =&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    try {</span>
       // In a real app, this would trigger the respective social auth flow
@@ -844,13 +852,13 @@
       // Simulate authentication delay
 <span class="cstat-no" title="statement not covered" >      setIsLoading(true);</span>
 <span class="cstat-no" title="statement not covered" >      await new Promise(<span class="fstat-no" title="function not covered" >resolve </span>=&gt; <span class="cstat-no" title="statement not covered" >setTimeout(resolve, 1500))</span>;</span>
-      
+&nbsp;
       // Set default profile name
 <span class="cstat-no" title="statement not covered" >      updateProfile({ name: provider === 'apple' ? 'Apple User' : 'Google User' });</span>
-      
+&nbsp;
       // Set as onboarded to skip onboarding
 <span class="cstat-no" title="statement not covered" >      setOnboarded(true);</span>
-      
+&nbsp;
       // Navigate to home
 <span class="cstat-no" title="statement not covered" >      router.replace('/');</span>
     } catch (error) {
@@ -860,13 +868,13 @@
 <span class="cstat-no" title="statement not covered" >      setIsLoading(false);</span>
     }
   };
-  
+&nbsp;
   const handleSkip = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >() =</span>&gt; {</span>
 <span class="cstat-no" title="statement not covered" >    router.replace('/onboarding');</span>
   };
 &nbsp;
 <span class="cstat-no" title="statement not covered" >  return (</span>
-    &lt;KeyboardAvoidingView 
+    &lt;KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
       keyboardVerticalOffset={Platform.OS === 'ios' ? 50 : 0}
@@ -875,25 +883,25 @@
         colors={['#1a1a1a', '#2d2d2d']}
         style={styles.background}
       /&gt;
-      
-      &lt;ScrollView 
+&nbsp;
+      &lt;ScrollView
         contentContainerStyle={styles.scrollContent}
         showsVerticalScrollIndicator={false}
       &gt;
         &lt;View style={styles.logoContainer}&gt;
-          &lt;Image 
-            source={{ uri: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80' }} 
+          &lt;Image
+            source={{ uri: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?ixlib=rb-1.2.1&amp;auto=format&amp;fit=crop&amp;w=500&amp;q=80' }}
             style={styles.logoImage}
           /&gt;
           &lt;Text style={styles.appName}&gt;FitMetallic&lt;/Text&gt;
           &lt;Text style={styles.tagline}&gt;Forge your fitness journey&lt;/Text&gt;
         &lt;/View&gt;
-        
+&nbsp;
         &lt;View style={styles.formContainer}&gt;
           &lt;Text style={styles.formTitle}&gt;
             {isLogin ? 'Welcome Back' : 'Create Account'}
           &lt;/Text&gt;
-          
+&nbsp;
           &lt;View style={styles.inputContainer}&gt;
             &lt;Mail size={20} color={colors.textSecondary} style={styles.inputIcon} /&gt;
             &lt;TextInput
@@ -906,9 +914,10 @@
               autoCapitalize="none"
               autoCorrect={false}
               cursorColor={colors.primary}
+              testID="login_screen.email_input"
             /&gt;
           &lt;/View&gt;
-          
+&nbsp;
           &lt;View style={styles.inputContainer}&gt;
             &lt;Lock size={20} color={colors.textSecondary} style={styles.inputIcon} /&gt;
             &lt;TextInput
@@ -921,8 +930,9 @@
               autoCapitalize="none"
               autoCorrect={false}
               cursorColor={colors.primary}
+              testID="login_screen.password_input"
             /&gt;
-            &lt;TouchableOpacity 
+            &lt;TouchableOpacity
               onPress={togglePasswordVisibility}
               style={styles.passwordToggle}
             &gt;
@@ -933,27 +943,28 @@
               )}
             &lt;/TouchableOpacity&gt;
           &lt;/View&gt;
-          
+&nbsp;
           {isLogin &amp;&amp; (
             &lt;TouchableOpacity style={styles.forgotPassword}&gt;
               &lt;Text style={styles.forgotPasswordText}&gt;Forgot Password?&lt;/Text&gt;
             &lt;/TouchableOpacity&gt;
           )}
-          
+&nbsp;
           &lt;Button
             title={isLogin ? 'Log In' : 'Sign Up'}
             onPress={handleAuth}
             loading={isLoading}
             style={styles.authButton}
             fullWidth
+            testID="login_screen.login_button"
           /&gt;
-          
+&nbsp;
           &lt;View style={styles.divider}&gt;
             &lt;View style={styles.dividerLine} /&gt;
             &lt;Text style={styles.dividerText}&gt;OR&lt;/Text&gt;
             &lt;View style={styles.dividerLine} /&gt;
           &lt;/View&gt;
-          
+&nbsp;
           &lt;View style={styles.socialButtons}&gt;
             &lt;SocialLoginButton
               provider="apple"
@@ -966,10 +977,11 @@
               disabled={isLoading}
             /&gt;
           &lt;/View&gt;
-          
-          &lt;TouchableOpacity 
+&nbsp;
+          &lt;TouchableOpacity
             style={styles.toggleAuth}
             onPress={toggleAuthMode}
+            testID="login_screen.signup_link"
           &gt;
             &lt;Text style={styles.toggleAuthText}&gt;
               {isLogin ? "Don't have an account? " : "Already have an account? "}
@@ -978,8 +990,8 @@
               &lt;/Text&gt;
             &lt;/Text&gt;
           &lt;/TouchableOpacity&gt;
-          
-          &lt;TouchableOpacity 
+&nbsp;
+          &lt;TouchableOpacity
             style={styles.skipButton}
             onPress={handleSkip}
           &gt;
@@ -1132,7 +1144,7 @@ const styles = <span class="cstat-no" title="statement not covered" >StyleSheet.
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2025-11-26T21:31:29.029Z
+                at 2025-11-26T21:46:52.626Z
             </div>
         <script src="../prettify.js"></script>
         <script>
