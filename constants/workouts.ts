@@ -384,6 +384,27 @@ export const workouts: Workout[] = [
         duration: 300
       }
     ]
+  },
+  {
+    id: '9',
+    title: 'Steady State Cardio',
+    description: 'Moderate intensity steady state cardio to build endurance',
+    imageUrl: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+    level: 'beginner',
+    type: 'cardio',
+    duration: 30,
+    calories: 250,
+    moodTypes: ['focused', 'energized'],
+    bodyTypes: ['mesomorph', 'ectomorph'],
+    exercises: [
+      {
+        id: 'e31',
+        name: 'Jogging',
+        description: 'Steady pace jogging',
+        imageUrl: 'https://images.unsplash.com/photo-1476480862126-209bfaa8edc8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+        duration: 1800
+      }
+    ]
   }
 ];
 

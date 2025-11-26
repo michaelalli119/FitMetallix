@@ -1,3 +1,6 @@
+// Mock global __DEV__
+global.__DEV__ = true;
+
 // Mock AsyncStorage
 jest.mock('@react-native-async-storage/async-storage', () => ({
   setItem: jest.fn(() => Promise.resolve()),
@@ -12,12 +15,12 @@ jest.mock('@react-native-async-storage/async-storage', () => ({
 
 // Mock expo-router
 jest.mock('expo-router', () => ({
-  useRouter: () => ({
+  useRouter: jest.fn(() => ({
     push: jest.fn(),
     replace: jest.fn(),
     back: jest.fn(),
     canGoBack: jest.fn(() => true),
-  }),
+  })),
   useLocalSearchParams: () => ({}),
   Link: 'Link',
   Stack: 'Stack',
@@ -93,12 +96,4 @@ global.console = {
   error: jest.fn(),
 };
 
-// Mock superjson
-jest.mock('superjson', () => ({
-  default: {
-    serialize: jest.fn((data) => data),
-    deserialize: jest.fn((data) => data),
-  },
-  serialize: jest.fn((data) => data),
-  deserialize: jest.fn((data) => data),
-}));
+

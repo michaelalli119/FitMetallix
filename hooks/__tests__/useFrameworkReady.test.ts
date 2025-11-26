@@ -17,8 +17,8 @@ describe('useFrameworkReady', () => {
     const { rerender } = renderHook(() => useFrameworkReady());
 
     // Rerender the hook
-    rerender();
-    rerender();
+    rerender({});
+    rerender({});
 
     // Should still only be called once due to empty dependency array
     expect(window.frameworkReady).toHaveBeenCalledTimes(1);

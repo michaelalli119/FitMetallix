@@ -64,14 +64,14 @@ describe('lib/trpc', () => {
       const { trpcClient } = require('../trpc');
 
       expect(trpcClient).toBeDefined();
-      expect(typeof trpcClient).toBe('object');
+      expect(typeof trpcClient).toBe('function');
     });
 
     it('should export trpc React hooks', () => {
       const { trpc } = require('../trpc');
 
       expect(trpc).toBeDefined();
-      expect(typeof trpc).toBe('object');
+      expect(typeof trpc).toBe('function');
     });
 
     it('should have correct link configuration', () => {

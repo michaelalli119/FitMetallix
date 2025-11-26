@@ -12,7 +12,7 @@ describe('Workout tRPC Routes', () => {
   describe('getWorkouts', () => {
     it('should return all workouts by default', async () => {
       const input = {};
-      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts' });
+      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       expect(Array.isArray(result)).toBe(true);
       expect(result.length).toBeGreaterThan(0);
@@ -21,7 +21,7 @@ describe('Workout tRPC Routes', () => {
 
     it('should filter workouts by type', async () => {
       const input = { type: 'strength' as const };
-      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts' });
+      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       result.forEach(workout => {
         expect(workout.type).toBe('strength');
@@ -30,7 +30,7 @@ describe('Workout tRPC Routes', () => {
 
     it('should filter workouts by level', async () => {
       const input = { level: 'beginner' as const };
-      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts' });
+      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       result.forEach(workout => {
         expect(workout.level).toBe('beginner');
@@ -39,7 +39,7 @@ describe('Workout tRPC Routes', () => {
 
     it('should filter by both type and level', async () => {
       const input = { type: 'cardio' as const, level: 'intermediate' as const };
-      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts' });
+      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       result.forEach(workout => {
         expect(workout.type).toBe('cardio');
@@ -49,14 +49,14 @@ describe('Workout tRPC Routes', () => {
 
     it('should respect limit parameter', async () => {
       const input = { limit: 3 };
-      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts' });
+      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       expect(result.length).toBeLessThanOrEqual(3);
     });
 
     it('should return empty array when no workouts match filters', async () => {
       const input = { type: 'strength' as const, level: 'advanced' as const };
-      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts' });
+      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       // This might return empty or some results depending on the data
       expect(Array.isArray(result)).toBe(true);
@@ -64,21 +64,21 @@ describe('Workout tRPC Routes', () => {
 
     it('should return all workouts when type is "all"', async () => {
       const input = { type: 'all' as const };
-      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts' });
+      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       expect(result.length).toBeGreaterThan(0);
     });
 
     it('should return all workouts when level is "all"', async () => {
       const input = { level: 'all' as const };
-      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts' });
+      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       expect(result.length).toBeGreaterThan(0);
     });
 
     it('should return workouts with valid structure', async () => {
       const input = {};
-      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts' });
+      const result = await getWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       if (result.length > 0) {
         const workout = result[0];
@@ -98,7 +98,7 @@ describe('Workout tRPC Routes', () => {
     it('should return workout by valid ID', async () => {
       const validWorkout = workouts[0];
       const input = { id: validWorkout.id };
-      const result = await getWorkoutById({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkoutById' });
+      const result = await getWorkoutById({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkoutById', getRawInput: async () => input, signal: new AbortController().signal });
 
       expect(result).toBeDefined();
       expect(result.id).toBe(validWorkout.id);
@@ -109,14 +109,14 @@ describe('Workout tRPC Routes', () => {
       const input = { id: 'non-existent-id' };
 
       await expect(
-        getWorkoutById({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkoutById' })
+        getWorkoutById({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkoutById', getRawInput: async () => input, signal: new AbortController().signal })
       ).rejects.toThrow('not found');
     });
 
     it('should return workout with complete data structure', async () => {
       const validWorkout = workouts[0];
       const input = { id: validWorkout.id };
-      const result = await getWorkoutById({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkoutById' });
+      const result = await getWorkoutById({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkoutById', getRawInput: async () => input, signal: new AbortController().signal });
 
       expect(result).toHaveProperty('id');
       expect(result).toHaveProperty('title');
@@ -135,7 +135,7 @@ describe('Workout tRPC Routes', () => {
     it('should return workout with exercises array', async () => {
       const validWorkout = workouts[0];
       const input = { id: validWorkout.id };
-      const result = await getWorkoutById({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkoutById' });
+      const result = await getWorkoutById({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getWorkoutById', getRawInput: async () => input, signal: new AbortController().signal });
 
       expect(Array.isArray(result.exercises)).toBe(true);
       if (result.exercises.length > 0) {
@@ -151,7 +151,7 @@ describe('Workout tRPC Routes', () => {
   describe('getRecommendedWorkouts', () => {
     it('should return workouts without filters', async () => {
       const input = {};
-      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts' });
+      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       expect(Array.isArray(result)).toBe(true);
       expect(result.length).toBeGreaterThan(0);
@@ -160,7 +160,7 @@ describe('Workout tRPC Routes', () => {
 
     it('should filter by body type', async () => {
       const input = { bodyType: 'mesomorph' as const, limit: 10 };
-      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts' });
+      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       result.forEach(workout => {
         expect(workout.bodyTypes).toContain('mesomorph');
@@ -169,7 +169,7 @@ describe('Workout tRPC Routes', () => {
 
     it('should filter by mood', async () => {
       const input = { mood: 'energized' as const, limit: 10 };
-      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts' });
+      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       result.forEach(workout => {
         expect(workout.moodTypes).toContain('energized');
@@ -178,7 +178,7 @@ describe('Workout tRPC Routes', () => {
 
     it('should filter by both body type and mood', async () => {
       const input = { bodyType: 'mesomorph' as const, mood: 'energized' as const, limit: 10 };
-      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts' });
+      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       result.forEach(workout => {
         expect(workout.bodyTypes).toContain('mesomorph');
@@ -188,7 +188,7 @@ describe('Workout tRPC Routes', () => {
 
     it('should respect limit parameter', async () => {
       const input = { limit: 2 };
-      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts' });
+      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       expect(result.length).toBeLessThanOrEqual(2);
     });
@@ -196,7 +196,7 @@ describe('Workout tRPC Routes', () => {
     it('should return fallback workouts when no matches found', async () => {
       // Use an uncommon combination that might not exist
       const input = { bodyType: 'ectomorph' as const, mood: 'anxious' as const, limit: 3 };
-      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts' });
+      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       // Should still return workouts even if no exact matches
       expect(Array.isArray(result)).toBe(true);
@@ -205,7 +205,7 @@ describe('Workout tRPC Routes', () => {
 
     it('should enforce minimum limit of 1', async () => {
       const input = { limit: 1 };
-      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts' });
+      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       expect(result.length).toBeGreaterThanOrEqual(0);
       expect(result.length).toBeLessThanOrEqual(1);
@@ -213,15 +213,15 @@ describe('Workout tRPC Routes', () => {
 
     it('should enforce maximum limit of 10', async () => {
       const input = { limit: 10 };
-      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts' });
+      const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       expect(result.length).toBeLessThanOrEqual(10);
     });
 
     it('should randomize workout order', async () => {
       const input = { limit: 3 };
-      const result1 = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts' });
-      const result2 = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts' });
+      const result1 = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
+      const result2 = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
       // Note: This test might occasionally fail due to randomness
       // but should pass most of the time
@@ -234,7 +234,7 @@ describe('Workout tRPC Routes', () => {
       if (!different) {
         // Try a few more times to verify randomization
         for (let i = 0; i < 5; i++) {
-          const result3 = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts' });
+          const result3 = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
           const ids3 = result3.map(w => w.id).join(',');
           if (ids1 !== ids3) {
             different = true;
@@ -254,7 +254,7 @@ describe('Workout tRPC Routes', () => {
 
       for (const bodyType of bodyTypes) {
         const input = { bodyType, limit: 5 };
-        const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts' });
+        const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
         expect(Array.isArray(result)).toBe(true);
       }
@@ -265,7 +265,7 @@ describe('Workout tRPC Routes', () => {
 
       for (const mood of moods) {
         const input = { mood, limit: 5 };
-        const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts' });
+        const result = await getRecommendedWorkouts({ input, ctx: mockContext, type: 'query' as const, path: 'workouts.getRecommendedWorkouts', getRawInput: async () => input, signal: new AbortController().signal });
 
         expect(Array.isArray(result)).toBe(true);
       }

@@ -1,9 +1,8 @@
 module.exports = {
-  preset: 'ts-jest',
-  testEnvironment: 'node',
+  preset: 'react-native',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.cjs'],
   transformIgnorePatterns: [
-    'node_modules/(?!(superjson|@trpc|@tanstack)/)',
+    'node_modules/(?!(superjson|@trpc|@tanstack|react-native|@react-native|expo.*|@expo.*)/)',
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
@@ -26,13 +25,16 @@ module.exports = {
     '**/*.test.{ts,tsx}',
   ],
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  globals: {
-    'ts-jest': {
-      tsconfig: {
-        jsx: 'react',
-        esModuleInterop: true,
-        allowSyntheticDefaultImports: true,
+  transform: {
+    '^.+\\.tsx?$': [
+      'ts-jest',
+      {
+        tsconfig: {
+          jsx: 'react',
+          esModuleInterop: true,
+          allowSyntheticDefaultImports: true,
+        },
       },
-    },
+    ],
   },
 };

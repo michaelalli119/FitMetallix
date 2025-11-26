@@ -27,7 +27,7 @@ export default function Button({
 }: ButtonProps) {
   const getButtonStyle = () => {
     let buttonStyle: ViewStyle = {};
-    
+
     // Variant styles
     switch (variant) {
       case 'primary':
@@ -47,7 +47,7 @@ export default function Button({
         buttonStyle.borderColor = colors.metallic.highlight;
         break;
     }
-    
+
     // Size styles
     switch (size) {
       case 'small':
@@ -63,23 +63,23 @@ export default function Button({
         buttonStyle.paddingHorizontal = 32;
         break;
     }
-    
+
     // Width style
     if (fullWidth) {
       buttonStyle.width = '100%';
     }
-    
+
     // Disabled style
     if (disabled) {
       buttonStyle.opacity = 0.5;
     }
-    
+
     return buttonStyle;
   };
-  
+
   const getTextStyle = () => {
     let textStyleObj: TextStyle = {};
-    
+
     switch (variant) {
       case 'primary':
       case 'secondary':
@@ -90,7 +90,7 @@ export default function Button({
         textStyleObj.color = colors.primary;
         break;
     }
-    
+
     switch (size) {
       case 'small':
         textStyleObj.fontSize = 14;
@@ -102,7 +102,7 @@ export default function Button({
         textStyleObj.fontSize = 18;
         break;
     }
-    
+
     return textStyleObj;
   };
 
@@ -116,11 +116,12 @@ export default function Button({
       ]}
       onPress={onPress}
       disabled={disabled || loading}
+      accessibilityRole="button"
     >
       {loading ? (
-        <ActivityIndicator 
-          color={variant === 'outline' ? colors.primary : colors.white} 
-          size="small" 
+        <ActivityIndicator
+          color={variant === 'outline' ? colors.primary : colors.white}
+          size="small"
         />
       ) : (
         <Text style={[styles.text, getTextStyle(), textStyle]}>
