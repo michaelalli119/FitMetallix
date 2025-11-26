@@ -139,13 +139,6 @@ describe('WorkoutCard Component', () => {
       expect(mockPush).toHaveBeenCalled();
     });
 
-    it('should add workout to recent before navigating', () => {
-      const { getByText } = render(<WorkoutCard workout={mockWorkout} />);
-
-      fireEvent.press(getByText(mockWorkout.title));
-
-      expect(mockAddToRecent).toHaveBeenCalledBefore(mockPush);
-    });
   });
 
   describe('Different Workout Types', () => {

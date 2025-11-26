@@ -51,6 +51,14 @@ jest.mock('expo-haptics', () => ({
   selectionAsync: jest.fn(),
 }));
 
+// Mock superjson
+jest.mock('superjson', () => ({
+  serialize: jest.fn((obj) => ({ json: obj, meta: undefined })),
+  deserialize: jest.fn((obj) => obj.json),
+  parse: jest.fn((str) => JSON.parse(str)),
+  stringify: jest.fn((obj) => JSON.stringify(obj)),
+}));
+
 // Mock lucide-react-native icons
 jest.mock('lucide-react-native', () => ({
   Home: 'Home',

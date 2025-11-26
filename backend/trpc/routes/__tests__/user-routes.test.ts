@@ -18,7 +18,7 @@ describe('User tRPC Routes', () => {
         height: 180,
       };
 
-      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile', rawInput: input });
+      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile' });
 
       expect(result.success).toBe(true);
       expect(result.updatedProfile).toEqual(input);
@@ -30,7 +30,7 @@ describe('User tRPC Routes', () => {
         name: 'Jane Doe',
       };
 
-      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile', rawInput: input });
+      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile' });
 
       expect(result.success).toBe(true);
       expect(result.updatedProfile.name).toBe('Jane Doe');
@@ -41,7 +41,7 @@ describe('User tRPC Routes', () => {
         bodyType: 'mesomorph' as const,
       };
 
-      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile', rawInput: input });
+      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile' });
 
       expect(result.success).toBe(true);
       expect(result.updatedProfile.bodyType).toBe('mesomorph');
@@ -52,7 +52,7 @@ describe('User tRPC Routes', () => {
         fitnessLevel: 'intermediate' as const,
       };
 
-      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile', rawInput: input });
+      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile' });
 
       expect(result.success).toBe(true);
       expect(result.updatedProfile.fitnessLevel).toBe('intermediate');
@@ -63,7 +63,7 @@ describe('User tRPC Routes', () => {
         fitnessGoals: ['Build Muscle', 'Lose Weight', 'Improve Endurance'],
       };
 
-      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile', rawInput: input });
+      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile' });
 
       expect(result.success).toBe(true);
       expect(result.updatedProfile.fitnessGoals).toEqual(input.fitnessGoals);
@@ -74,7 +74,7 @@ describe('User tRPC Routes', () => {
         currentMood: 'energized' as const,
       };
 
-      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile', rawInput: input });
+      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile' });
 
       expect(result.success).toBe(true);
       expect(result.updatedProfile.currentMood).toBe('energized');
@@ -86,7 +86,7 @@ describe('User tRPC Routes', () => {
         weight: null,
       };
 
-      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile', rawInput: input });
+      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile' });
 
       expect(result.success).toBe(true);
       expect(result.updatedProfile.age).toBeNull();
@@ -95,7 +95,7 @@ describe('User tRPC Routes', () => {
 
     it('should include timestamp in response', async () => {
       const input = { name: 'Test' };
-      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile', rawInput: input });
+      const result = await updateProfile({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProfile' });
 
       expect(result.timestamp).toBeDefined();
       expect(result.timestamp instanceof Date).toBe(true);
@@ -111,7 +111,7 @@ describe('User tRPC Routes', () => {
         lastWorkoutDate: '2024-01-01T00:00:00.000Z',
       };
 
-      const result = await updateProgress({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProgress', rawInput: input });
+      const result = await updateProgress({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProgress' });
 
       expect(result.success).toBe(true);
       expect(result.updatedProgress).toEqual(input);
@@ -123,7 +123,7 @@ describe('User tRPC Routes', () => {
         completedWorkouts: 5,
       };
 
-      const result = await updateProgress({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProgress', rawInput: input });
+      const result = await updateProgress({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProgress' });
 
       expect(result.success).toBe(true);
       expect(result.updatedProgress.completedWorkouts).toBe(5);
@@ -136,7 +136,7 @@ describe('User tRPC Routes', () => {
         streakDays: 0,
       };
 
-      const result = await updateProgress({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProgress', rawInput: input });
+      const result = await updateProgress({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProgress' });
 
       expect(result.success).toBe(true);
       expect(result.updatedProgress).toEqual(input);
@@ -144,7 +144,7 @@ describe('User tRPC Routes', () => {
 
     it('should include timestamp in response', async () => {
       const input = { completedWorkouts: 1 };
-      const result = await updateProgress({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProgress', rawInput: input });
+      const result = await updateProgress({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.updateProgress' });
 
       expect(result.timestamp).toBeDefined();
       expect(result.timestamp instanceof Date).toBe(true);
@@ -160,7 +160,7 @@ describe('User tRPC Routes', () => {
         gender: 'male' as const,
       };
 
-      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan', rawInput: input });
+      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan' });
 
       expect(result).toHaveProperty('bodyType');
       expect(result).toHaveProperty('recommendations');
@@ -176,7 +176,7 @@ describe('User tRPC Routes', () => {
         gender: 'male' as const,
       };
 
-      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan', rawInput: input });
+      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan' });
 
       expect(result.bodyType).toBe('ectomorph');
       expect(result.recommendations.length).toBeGreaterThan(0);
@@ -191,7 +191,7 @@ describe('User tRPC Routes', () => {
         gender: 'male' as const,
       };
 
-      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan', rawInput: input });
+      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan' });
 
       expect(result.bodyType).toBe('mesomorph');
       expect(result.recommendations.length).toBeGreaterThan(0);
@@ -206,7 +206,7 @@ describe('User tRPC Routes', () => {
         gender: 'male' as const,
       };
 
-      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan', rawInput: input });
+      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan' });
 
       expect(result.bodyType).toBe('endomorph');
       expect(result.recommendations.length).toBeGreaterThan(0);
@@ -221,7 +221,7 @@ describe('User tRPC Routes', () => {
         gender: 'male' as const,
       };
 
-      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan', rawInput: input });
+      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan' });
 
       expect(result.measurements).toHaveProperty('bodyFatPercentage');
       expect(result.measurements).toHaveProperty('muscleMass');
@@ -237,7 +237,7 @@ describe('User tRPC Routes', () => {
         imageBase64: 'base64encodedstring...',
       };
 
-      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan', rawInput: input });
+      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan' });
 
       expect(result).toHaveProperty('bodyType');
       expect(result).toHaveProperty('recommendations');
@@ -250,7 +250,7 @@ describe('User tRPC Routes', () => {
         gender: 'male' as const,
       };
 
-      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan', rawInput: input });
+      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan' });
 
       expect(result).toHaveProperty('bodyType');
       expect(result.bodyType).toBe('mesomorph'); // Default when no BMI calculation
@@ -263,7 +263,7 @@ describe('User tRPC Routes', () => {
       };
 
       const startTime = Date.now();
-      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan', rawInput: input });
+      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan' });
       const endTime = Date.now();
 
       // Should complete within 3 seconds (including 1.5s simulated delay)
@@ -277,7 +277,7 @@ describe('User tRPC Routes', () => {
         weight: 75,
       };
 
-      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan', rawInput: input });
+      const result = await analyzeBodyScan({ input, ctx: mockContext, type: 'mutation' as const, path: 'user.analyzeBodyScan' });
 
       expect(Array.isArray(result.recommendations)).toBe(true);
       expect(result.recommendations.length).toBeGreaterThan(0);
@@ -299,7 +299,7 @@ describe('User tRPC Routes', () => {
         },
       };
 
-      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements', rawInput: input });
+      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements' });
 
       expect(Array.isArray(result)).toBe(true);
       expect(result.length).toBeGreaterThan(0);
@@ -315,7 +315,7 @@ describe('User tRPC Routes', () => {
         },
       };
 
-      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements', rawInput: input });
+      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements' });
       const firstWorkout = result.find(a => a.title === 'First Workout');
 
       expect(firstWorkout).toBeDefined();
@@ -333,7 +333,7 @@ describe('User tRPC Routes', () => {
         },
       };
 
-      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements', rawInput: input });
+      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements' });
       const firstWorkout = result.find(a => a.title === 'First Workout');
 
       expect(firstWorkout).toBeDefined();
@@ -350,7 +350,7 @@ describe('User tRPC Routes', () => {
         },
       };
 
-      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements', rawInput: input });
+      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements' });
       const streak = result.find(a => a.title === '3-Day Streak');
 
       expect(streak).toBeDefined();
@@ -368,7 +368,7 @@ describe('User tRPC Routes', () => {
         },
       };
 
-      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements', rawInput: input });
+      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements' });
       const streak = result.find(a => a.title === '3-Day Streak');
 
       expect(streak).toBeDefined();
@@ -387,7 +387,7 @@ describe('User tRPC Routes', () => {
         },
       };
 
-      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements', rawInput: input });
+      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements' });
       const timeCommitment = result.find(a => a.title === 'Time Commitment');
 
       expect(timeCommitment).toBeDefined();
@@ -404,7 +404,7 @@ describe('User tRPC Routes', () => {
         },
       };
 
-      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements', rawInput: input });
+      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements' });
       const consistency = result.find(a => a.title === 'Consistency King');
 
       expect(consistency).toBeDefined();
@@ -421,7 +421,7 @@ describe('User tRPC Routes', () => {
         },
       };
 
-      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements', rawInput: input });
+      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements' });
 
       result.forEach(achievement => {
         expect(achievement).toHaveProperty('id');
@@ -452,7 +452,7 @@ describe('User tRPC Routes', () => {
         },
       };
 
-      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements', rawInput: input });
+      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements' });
       const unlocked = result.filter(a => a.unlocked);
 
       unlocked.forEach(achievement => {
@@ -471,7 +471,7 @@ describe('User tRPC Routes', () => {
         },
       };
 
-      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements', rawInput: input });
+      const result = await getAchievements({ input, ctx: mockContext, type: 'query' as const, path: 'user.getAchievements' });
       const locked = result.filter(a => !a.unlocked);
 
       locked.forEach(achievement => {
