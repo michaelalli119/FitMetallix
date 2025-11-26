@@ -36,6 +36,8 @@ A modern fitness tracking application built with React Native and Expo, featurin
 - **ESLint** - Code linting
 - **TypeScript** - Static type checking
 - **Expo Dev Tools** - Development and debugging
+- **Jest** - Unit and API testing
+- **Maestro** - E2E testing
 
 ## 📋 Prerequisites
 
@@ -46,6 +48,7 @@ Before you begin, ensure you have the following installed:
 - **Expo CLI**: `npm install -g @expo/cli`
 - **iOS Simulator** (for iOS development on macOS)
 - **Android Studio** (for Android development)
+- **Maestro CLI** (for E2E testing): `curl -Ls "https://get.maestro.mobile.dev" | bash`
 
 ## 🚀 Getting Started
 
@@ -83,13 +86,49 @@ npm run start-web-dev
 - **Android**: Press `a` in the terminal or scan the QR code with the Expo Go app
 - **Web**: Press `w` in the terminal or navigate to the displayed localhost URL
 
-## 📱 Platform Support
+## 🧪 Testing Guide
 
-| Platform | Status | Notes |
-|----------|--------|-------|
-| iOS | ✅ Supported | Requires iOS 13.0+ |
-| Android | ✅ Supported | Requires Android 6.0+ (API 23) |
-| Web | ✅ Supported | Modern browsers |
+We employ a comprehensive testing strategy covering Unit, API, and End-to-End (E2E) tests.
+
+### Running Tests
+
+| Command | Description |
+|---------|-------------|
+| `npm test` | Runs Unit and API tests using Jest. |
+| `npm run test:coverage` | Runs Jest tests and generates a code coverage report. |
+| `maestro test .maestro` | Runs E2E tests using Maestro (requires running simulator). |
+| `npm run test:all` | **Recommended**: Runs Jest tests (with coverage) followed by Maestro E2E tests. |
+
+### 1. Unit & API Tests (Jest)
+
+Located in `__tests__`, `components/__tests__`, `hooks/__tests__`, and `backend/trpc/routes/__tests__`.
+
+-   **Unit Tests**: Verify individual components and hooks.
+    -   Example: `components/__tests__/Button.test.tsx`
+-   **API Tests**: Verify tRPC backend routes and logic.
+    -   Example: `backend/trpc/routes/__tests__/workout-routes.test.ts`
+
+**How to add a new Unit Test:**
+1.  Create a `__tests__` folder next to your component/hook.
+2.  Create a file named `YourComponent.test.tsx`.
+3.  Use `@testing-library/react-native` to render and assert.
+
+### 2. End-to-End Tests (Maestro)
+
+Located in the `.maestro/` directory. These tests simulate real user interactions on a running app.
+
+-   **Flows**:
+    -   `login.yaml`: Login process.
+    -   `onboarding.yaml`: User onboarding journey.
+    -   `workout_flow.yaml`: Selecting and starting a workout.
+    -   `profile_flow.yaml`: Profile editing and logout.
+
+**How to add a new E2E Flow:**
+1.  Create a `.yaml` file in `.maestro/`.
+2.  Define steps using Maestro syntax (e.g., `tapOn`, `assertVisible`).
+3.  Run `maestro test .maestro/your_flow.yaml` to verify.
+
+**Note**: Ensure accessibility IDs (`testID`) are added to UI elements to make them testable.
 
 ## 🏗️ Project Structure
 
@@ -102,11 +141,15 @@ FitMetallix/
 ├── assets/                 # Images, fonts, and other static assets
 ├── types/                  # TypeScript type definitions
 ├── server/                 # Backend API (Hono + tRPC)
+├── backend/                # Backend logic and routes
+├── store/                  # Zustand state stores
+├── constants/              # App constants and mock data
+├── .maestro/               # Maestro E2E test flows
 ├── .expo/                  # Expo configuration (auto-generated)
 ├── package.json            # Dependencies and scripts
-├── app.json               # Expo app configuration
-├── tsconfig.json          # TypeScript configuration
-└── README.md              # This file
+├── app.json                # Expo app configuration
+├── tsconfig.json           # TypeScript configuration
+└── README.md               # This file
 ```
 
 ## 🔧 Available Scripts
@@ -118,98 +161,9 @@ FitMetallix/
 | `npm run start-web-dev` | Start web development server with debug info |
 | `npm run lint` | Run ESLint code linting |
 | `npm run lint:fix` | Run ESLint and automatically fix issues |
-
-## 🌐 Environment Setup
-
-### Development
-
-1. Copy environment variables:
-```bash
-cp .env.example .env.local
-```
-
-2. Update the environment variables in `.env.local`:
-```env
-EXPO_PUBLIC_API_URL=http://localhost:3000
-EXPO_PUBLIC_APP_ENV=development
-```
-
-### Production
-
-Set up your production environment variables in your hosting platform or CI/CD pipeline.
-
-## 📦 Key Dependencies
-
-### Core Libraries
-- `expo` - Expo development platform
-- `react` & `react-native` - Core React Native framework
-- `expo-router` - File-based routing
-- `typescript` - Static type checking
-
-### UI & Styling
-- `nativewind` - Tailwind CSS for React Native
-- `expo-linear-gradient` - Gradient components
-- `expo-blur` - Blur effects
-- `lucide-react-native` - Icon library
-
-### API & State Management
-- `@trpc/client`, `@trpc/react-query`, `@trpc/server` - Type-safe API
-- `@tanstack/react-query` - Data fetching and caching
-- `zustand` - State management
-- `hono` - Backend framework
-
-### Device Features
-- `expo-camera` - Camera functionality
-- `expo-image-picker` - Image selection
-- `expo-location` - GPS and location services
-- `expo-haptics` - Haptic feedback
-- `@react-native-async-storage/async-storage` - Local storage
-
-## 🔧 Development Tips
-
-### Hot Reloading
-The app supports hot reloading. Save any file to see changes instantly on your device/simulator.
-
-### Debugging
-- Use Expo Dev Tools for debugging
-- Enable remote debugging for advanced debugging features
-- Use Flipper for React Native debugging (Android/iOS)
-
-### Type Safety
-This project uses TypeScript and tRPC for full-stack type safety. Make sure to:
-- Define proper types for your data
-- Use the tRPC client for API calls
-- Leverage Zod schemas for validation
-
-## 🧪 Testing
-
-```bash
-# Run linting
-npm run lint
-
-# Fix linting issues automatically
-npm run lint:fix
-```
-
-## 🚀 Deployment
-
-### Build for Production
-
-```bash
-# Build for all platforms
-expo build
-
-# Build for specific platform
-expo build:ios
-expo build:android
-expo build:web
-```
-
-### Deploy to App Stores
-
-1. **iOS App Store**: Use Expo Application Services (EAS) or build locally with Xcode
-2. **Google Play Store**: Use EAS Build or build locally with Android Studio
-3. **Web**: Deploy the web build to any static hosting service (Vercel, Netlify, etc.)
+| `npm test` | Run Jest tests |
+| `npm run test:coverage` | Run Jest tests with coverage |
+| `npm run test:all` | Run all tests (Jest + Maestro) |
 
 ## 🤝 Contributing
 
@@ -219,36 +173,6 @@ expo build:web
 4. Push to the branch: `git push origin feature/amazing-feature`
 5. Open a Pull Request
 
-### Code Style
-
-- Follow the ESLint configuration
-- Use TypeScript for type safety
-- Follow React Native best practices
-- Write meaningful commit messages
-
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 📞 Support
-
-If you encounter any issues or have questions:
-
-1. Check the [Expo Documentation](https://docs.expo.dev/)
-2. Check the [React Native Documentation](https://reactnative.dev/docs/getting-started)
-3. Open an issue in this repository
-4. Contact the development team
-
-## 🎯 Roadmap
-
-- [ ] User authentication and profiles
-- [ ] Workout tracking and analytics
-- [ ] Social features and community
-- [ ] Nutrition tracking
-- [ ] Wearable device integration
-- [ ] Offline mode improvements
-- [ ] Performance optimizations
-
----
-
-Built with ❤️ using Expo and React Native
