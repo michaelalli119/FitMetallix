@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1764194601496" clover="3.2.0">
-  <project timestamp="1764194601496" name="All files">
+<coverage generated="1764195957427" clover="3.2.0">
+  <project timestamp="1764195957427" name="All files">
     <metrics statements="1171" coveredstatements="199" conditionals="549" coveredconditionals="66" methods="268" coveredmethods="59" elements="1988" coveredelements="324" complexity="0" loc="1171" ncloc="1171" packages="12" files="47" classes="47"/>
     <package name="app">
       <metrics statements="684" coveredstatements="0" conditionals="327" coveredconditionals="0" methods="156" coveredmethods="0"/>
@@ -947,7 +947,7 @@
         <line num="26" count="68" type="stmt"/>
         <line num="31" count="18" type="cond" truecount="0" falsecount="1"/>
         <line num="32" count="0" type="stmt"/>
-        <line num="36" count="213" type="stmt"/>
+        <line num="36" count="218" type="stmt"/>
         <line num="39" count="18" type="stmt"/>
       </file>
       <file name="get-workout-by-id.ts" path="/Users/michaelalli/Documents/GitHub/FitMetallix/backend/trpc/routes/workouts/get-workout-by-id.ts">
